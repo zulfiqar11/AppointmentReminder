@@ -1,3 +1,25 @@
-<p>
-  contact-list works!
-</p>
+<div class="container">
+    <div>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Email</th>
+                <th scope="col">TimeZone</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let contact of contacts">
+                <th scope="row">{{contact.FirstName}}</th>
+                <td>{{contact.LastName}}</td>
+                <td>{{contact.Phone}}</td>
+                <td>{{contact.Email}}</td>
+                <td>{{contact.TimeZone}}</td>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+  
