@@ -2,21 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-
 import { AppComponent } from './app.component';
-import { AppointmentListComponent } from './appointments/appointment-list/appointment-list.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
-import { AppointmentsService } from './services/appointments.service';
-
-
+import { ReminderListComponent } from './reminders/reminder-list/reminder-list.component';
+import { RemindersService } from './services/reminders.service';
 
 
 const appRoutes: Routes = [
-  { path: 'appointments', component: AppointmentListComponent },
+  { path: 'reminders', component: ReminderListComponent },
   { path: 'contacts',      component: ContactListComponent },
   { path: '',
-    redirectTo: '/appointments',
+    redirectTo: '/reminders',
     pathMatch: 'full'
   },
   { path: '**', component: PageNotFoundComponent }
@@ -25,7 +22,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    AppointmentListComponent,
+    ReminderListComponent,
     ContactListComponent,
     PageNotFoundComponent
   ],
@@ -33,7 +30,7 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [AppointmentsService],
+  providers: [RemindersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

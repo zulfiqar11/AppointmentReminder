@@ -1,5 +1,5 @@
 
-export interface Appointment {
+export interface Reminder {
     FirstName: string;
     LastName: String;
     Date: string;

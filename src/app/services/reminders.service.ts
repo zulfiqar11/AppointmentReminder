@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Appointment } from '../Models/appointment';
+import { Reminder } from '../Models/Reminder';
 
 @Injectable()
-export class AppointmentsService {
+export class RemindersService {
 
   constructor() { }
 
-  getAppointments() : Array<Appointment> {
+  getReminders() : Array<Reminder> {
     return [
       {FirstName: 'Sobia', LastName: 'Syed', Date:  '4/26/2018', Time:  '5:49 PM', Day:  'Thursday', Frequency: 'Weekly'},
       {FirstName: 'Zulfiqar', LastName: 'Syed', Date:  '4/26/2018', Time:  '5:49 PM', Day:  'Thursday', Frequency: 'Daily'},

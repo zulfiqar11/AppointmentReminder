@@ -14,13 +14,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let appointment of appointments">
-              <th scope="row">{{appointment.FirstName}}</th>
-              <td>{{appointment.LastName}}</td>
-              <td>{{appointment.Date}}</td>
-              <td>{{appointment.Day}}</td>
-              <td>{{appointment.Time}}</td>
-              <td>{{appointment.Frequency}}</td>
+            <tr *ngFor="let reminder of reminders">
+              <th scope="row">{{reminder.FirstName}}</th>
+              <td>{{reminder.LastName}}</td>
+              <td>{{reminder.Date}}</td>
+              <td>{{reminder.Day}}</td>
+              <td>{{reminder.Time}}</td>
+              <td>{{reminder.Frequency}}</td>
 
             </tr>
           </tbody>
