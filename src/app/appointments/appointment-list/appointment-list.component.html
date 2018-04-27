@@ -14,16 +14,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">Mark</th>
-              <td>Simmons</td>
-              <td>4/26/2018</td>
-              <td>Thursday</td>
-              <td>4:23 PM</td>
-              <td>Weekly</td>
+            <tr *ngFor="let appointment of appointments">
+              <th scope="row">{{appointment.FirstName}}</th>
+              <td>{{appointment.LastName}}</td>
+              <td>{{appointment.Date}}</td>
+              <td>{{appointment.Day}}</td>
+              <td>{{appointment.Time}}</td>
+              <td>{{appointment.Frequency}}</td>
 
             </tr>
-            <tr>
+            <!-- <tr>
                 <th scope="row">Sobia</th>
                 <td>Syed</td>
                 <td>4/26/2018</td>
@@ -38,7 +38,7 @@
                 <td>Thursday</td>
                 <td>4:23 PM</td>
                 <td>Weekly</td>
-              </tr>
+              </tr> -->
           </tbody>
         </table>
 
