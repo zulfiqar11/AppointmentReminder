@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AppointmentListComponent } from './appointments/appointment-list/appointment-list.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+import { AppointmentsService } from './services/appointments.service';
 
 
 
@@ -32,7 +33,7 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [AppointmentsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
