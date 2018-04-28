@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -36,7 +37,7 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [RemindersService, ContactsService],
+  providers: [RemindersService, ContactsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

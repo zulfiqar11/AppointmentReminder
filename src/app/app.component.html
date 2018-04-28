@@ -14,14 +14,13 @@
         <li class="nav-item">
           <a routerLinkActive="active" routerLink="/contacts" class="nav-link">Contacts</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link">Login</a>
-        </li> -->
       </ul>
       <form class="form-inline my-2 my-lg-0">
-        <a routerLinkActive="active" routerLink="/login" class="nav-link">Login</a>
-        <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+        
+          <a routerLinkActive="active" routerLink="/login" class="nav-link">Login</a>
+          <a routerLinkActive="active" (click)="logOut()" class="nav-link">Logout</a>
+          <!-- <div *ngIf = "!authService.loggedIn()" > -->
+          
       </form>
     </div>
   </nav>
