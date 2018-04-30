@@ -6,11 +6,11 @@ export class ContactsService {
 
   constructor() { }
 
-  getContacts() : Array<Contact> {
+  getContacts(): Array<Contact> {
     return [
-      {FirstName: 'Sobia', LastName: 'Syed', Phone:  '714-469-1491', Email:  'datagig@gmail.com', TimeZone:  'PST'},
-      {FirstName: 'Zulfiqar', LastName: 'Syed', Phone:  '714-469-1491', Email:  'datagig@gmail.com', TimeZone:  'PST'},
-      {FirstName: 'Lenah', LastName: 'Syed', Phone:  '714-469-1491', Email:  'datagig@gmail.com', TimeZone:  'PST'}
+      {id: 1, FirstName: 'Sobia', LastName: 'Syed', Phone:  '714-469-1491', Email:  'datagig@gmail.com', TimeZone:  'PST'},
+      {id: 2, FirstName: 'Zulfiqar', LastName: 'Syed', Phone:  '714-469-1491', Email:  'datagig@gmail.com', TimeZone:  'PST'},
+      {id: 3, FirstName: 'Lenah', LastName: 'Syed', Phone:  '714-469-1491', Email:  'datagig@gmail.com', TimeZone:  'PST'}
     ];
-  };
+  }
 }

@@ -12,7 +12,11 @@
             </thead>
             <tbody>
               <tr *ngFor="let contact of contacts">
-                <th scope="row">{{contact.FirstName}}</th>
+                <td>
+                  <a [routerLink]="['/contacts', contact.id]">
+                    {{contact.FirstName}}
+                  </a>
+                </td>
                 <td>{{contact.LastName}}</td>
                 <td>{{contact.Phone}}</td>
                 <td>{{contact.Email}}</td>
