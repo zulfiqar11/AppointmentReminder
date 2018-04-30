@@ -1,5 +1,6 @@
 
 export interface Reminder {
+    id: number;
     FirstName: string;
     LastName: String;
     Date: string;

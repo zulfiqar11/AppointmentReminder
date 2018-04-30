@@ -13,17 +13,33 @@
           </thead>
           <tbody>
             <tr *ngFor="let reminder of reminders">
-              <th scope="row">{{reminder.FirstName}}</th>
+              <!-- <a [routerlink]="['/reminders',reminder.id]">
+                <th scope="row">{{reminder.FirstName}}</th>
+              </a> -->
+              <td>
+                <a [routerLink]="['/reminders', reminder.id]">
+                  {{reminder.FirstName}}
+                </a>
+              </td>
+            
               <td>{{reminder.LastName}}</td>
               <td>{{reminder.Date}}</td>
               <td>{{reminder.Day}}</td>
               <td>{{reminder.Time}}</td>
               <td>{{reminder.Frequency}}</td>
               <td>
-                <a href="" class="btn btn-primary">Edit</a>
+                <a 
+                    [routerLink] ="['/reminders', reminder.id, 'edit']"
+                    class="btn btn-primary">
+                  Edit
+                </a>
               </td>
             </tr>
           </tbody>
         </table>
+        <button
+          [routerLink]="['reminders',0,'edit']"
+         class="btn btn-primary">Add reminders</button>
+        
   </div>
 </div>
