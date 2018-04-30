@@ -13,9 +13,6 @@
           </thead>
           <tbody>
             <tr *ngFor="let reminder of reminders">
-              <!-- <a [routerlink]="['/reminders',reminder.id]">
-                <th scope="row">{{reminder.FirstName}}</th>
-              </a> -->
               <td>
                 <a [routerLink]="['/reminders', reminder.id]">
                   {{reminder.FirstName}}
