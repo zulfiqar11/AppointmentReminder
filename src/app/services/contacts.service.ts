@@ -4,17 +4,19 @@ import { Contact } from '../Models/contact';
 @Injectable()
 export class ContactsService {
 
+  contacts: Array<Contact> = [
+    {id: 1, FirstName: 'Sobia', LastName: 'Syed', Phone:  '714-469-1491', Email:  'datagig@gmail.com', TimeZone:  'PST'},
+    {id: 2, FirstName: 'Zulfiqar', LastName: 'Syed', Phone:  '714-469-1491', Email:  'datagig@gmail.com', TimeZone:  'PST'},
+    {id: 3, FirstName: 'Lenah', LastName: 'Syed', Phone:  '714-469-1491', Email:  'datagig@gmail.com', TimeZone:  'PST'}
+  ];
+
   constructor() { }
 
   getContacts(): Array<Contact> {
-    return [
-      {id: 1, FirstName: 'Sobia', LastName: 'Syed', Phone:  '714-469-1491', Email:  'datagig@gmail.com', TimeZone:  'PST'},
-      {id: 2, FirstName: 'Zulfiqar', LastName: 'Syed', Phone:  '714-469-1491', Email:  'datagig@gmail.com', TimeZone:  'PST'},
-      {id: 3, FirstName: 'Lenah', LastName: 'Syed', Phone:  '714-469-1491', Email:  'datagig@gmail.com', TimeZone:  'PST'}
-    ];
+    return this.contacts;
   }
 
   getContact(id: number): Contact {
-    return {id: 1, FirstName: 'Sobia', LastName: 'Syed', Phone:  '714-469-1491', Email:  'datagig@gmail.com', TimeZone:  'PST'};
+    return this.contacts.find(c => c.id === id);
   }
 }
