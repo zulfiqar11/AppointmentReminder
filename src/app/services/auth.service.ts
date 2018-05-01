@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
+//import { Http } from '@angular/http';
 
 @Injectable()
 export class AuthService {
 
-  public loggedIn: boolean;
-
+  validLogin: boolean
   constructor() { }
 
-  login(): void {
-    this.loggedIn = true;
+  login() {
+    //return this.http.post('/api/authenticate', JSON.stringify(credentials));
+    this.validLogin = true;
   }
 
-  logOut(): void {
-    this.loggedIn = false;
+  logOut() {
+    this.validLogin = false;
+  }
+
+  isLoggedIn(){
+    return this.validLogin;
   }
 }
