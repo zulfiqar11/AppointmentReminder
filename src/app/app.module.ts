@@ -13,18 +13,16 @@ import { LoginComponent } from './login/login/login.component';
 import { ContactsService } from './services/contacts.service';
 import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
 import { ReminderDetailComponent } from './reminders/reminder-detail/reminder-detail.component';
+import { NavComponent } from './nav/nav.component';
 
 const appRoutes: Routes = [
+  { path: 'reminders/:id', component: ReminderDetailComponent },
+  { path: 'reminders', component: ReminderListComponent },
+  { path: 'contacts/:id', component: ContactDetailComponent },
+  { path: 'contacts',      component: ContactListComponent },
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'reminders', component: ReminderListComponent },
-  { path: 'reminders/:id', component: ReminderDetailComponent },
-  { path: 'contacts',      component: ContactListComponent },
-  { path: 'contacts/:id', component: ContactDetailComponent },
-  { path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -37,7 +35,8 @@ const appRoutes: Routes = [
     HomeComponent,
     LoginComponent,
     ReminderDetailComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
