@@ -8,13 +8,4 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  authoService: AuthService;
-
-  constructor(private router: Router, private authService: AuthService) { this.authoService = this.authoService; }
-
-  logOut() {
-    this.authService.logOut();
-    this.authoService = this.authService;
-    this.router.navigateByUrl('/home');
-  }
 }
