@@ -16,14 +16,16 @@ import { ReminderDetailComponent } from './reminders/reminder-detail/reminder-de
 import { NavComponent } from './nav/nav.component';
 import { AdminComponent } from './admin/admin.component';
 import { NoAccessComponent } from './no-access/no-access.component';
+import { AuthGuardService } from './services/auth-guard.service';
+
 
 const appRoutes: Routes = [
   { path: 'reminders/:id', component: ReminderDetailComponent },
-  { path: 'reminders', component: ReminderListComponent },
+  { path: 'reminders', component: ReminderListComponent, canActivate: [AuthGuardService]},
   { path: 'contacts/:id', component: ContactDetailComponent },
-  { path: 'contacts',      component: ContactListComponent },
+  { path: 'contacts', component: ContactListComponent , canActivate: [AuthGuardService]},
   { path: 'login', component: LoginComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService]},
   { path: 'no-access', component: NoAccessComponent },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -48,7 +50,7 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [RemindersService, ContactsService, AuthService],
+  providers: [RemindersService, AuthGuardService, ContactsService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
