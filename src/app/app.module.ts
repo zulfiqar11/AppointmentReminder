@@ -17,11 +17,15 @@ import { NavComponent } from './nav/nav.component';
 import { AdminComponent } from './admin/admin.component';
 import { NoAccessComponent } from './no-access/no-access.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { ReminderEditComponent } from './reminders/reminder-edit/reminder-edit.component';
+import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 
 
 const appRoutes: Routes = [
+  { path: 'reminders/:id/edit', component: ReminderEditComponent },
   { path: 'reminders/:id', component: ReminderDetailComponent },
   { path: 'reminders', component: ReminderListComponent, canActivate: [AuthGuardService]},
+  { path: 'contacts/:id/edit', component: ContactEditComponent },
   { path: 'contacts/:id', component: ContactDetailComponent },
   { path: 'contacts', component: ContactListComponent , canActivate: [AuthGuardService]},
   { path: 'login', component: LoginComponent },
@@ -44,7 +48,9 @@ const appRoutes: Routes = [
     ContactDetailComponent,
     NavComponent,
     AdminComponent,
-    NoAccessComponent
+    NoAccessComponent,
+    ReminderEditComponent,
+    ContactEditComponent
   ],
   imports: [
     BrowserModule,

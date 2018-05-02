@@ -22,7 +22,7 @@
                 <td>{{contact.Email}}</td>
                 <td>{{contact.TimeZone}}</td>
                 <td>
-                    <a href="" class="btn btn-primary">Edit</a>
+                    <a [routerLink]="['/contacts', contact.id, 'edit']" class="btn btn-primary">Edit</a>
                   </td>
                 </tr>
             </tbody>
