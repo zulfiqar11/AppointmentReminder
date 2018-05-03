@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReminderEditComponent implements OnInit {
 
-  pageTitle : string = "Reminder Edit";
+  pageTitle = 'Reminder Edit';
   constructor() { }
 
   ngOnInit() {
