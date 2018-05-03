@@ -18,6 +18,20 @@ export class ContactsService {
   }
 
   getContact(id: number): Contact {
-    return this.contacts.find(c => c.id === id);
+
+    if (id > 0)
+    {
+      return this.contacts.find(c => c.id === id);
+    }
+    else{
+      let blankContact: Array<Contact> = [
+        {id: 0, FirstName: '', LastName: '', Phone:  '', Email:  '', TimeZone:  ''},
+      ];
+      return blankContact[0];
+    }
   }
+
+  
+
+
 }

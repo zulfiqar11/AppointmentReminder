@@ -28,11 +28,8 @@ export class ContactEditComponent implements OnInit {
 
   ngOnInit() {
     const id = +this.route.snapshot.params['id'];
-
-    if (id > 0) {
-      this.pageTitle = 'Contact Edit';
-      this.contact = this.contactService.getContact(id);
-    }
+    this.contact = this.contactService.getContact(id);
+    if (id > 0) this.pageTitle = 'Contact Edit';
   }
 
   SaveContact() {
