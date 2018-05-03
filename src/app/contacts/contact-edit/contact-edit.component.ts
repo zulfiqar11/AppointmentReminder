@@ -14,6 +14,14 @@ export class ContactEditComponent implements OnInit {
 
   pageTitle = 'Contact Add';
   contact: Contact;
+  debugMsg: string; 
+  timeZones= [
+    {id: 0, name: 'Select..'},
+    {id: 1, name: 'Pacific'},
+    {id: 2, name: 'Central'},
+    {id: 3, name: 'Mountain'},
+    {id: 4, name: 'Eastern'}
+  ];
 
   constructor(private contactService: ContactsService,
                 private route: ActivatedRoute ) { }
@@ -28,7 +36,7 @@ export class ContactEditComponent implements OnInit {
   }
 
   SaveContact() {
-    console.log(JSON.stringify(this.contact));
+    this.debugMsg= JSON.stringify(this.contact);
   }
 
 }
