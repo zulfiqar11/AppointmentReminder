@@ -29,7 +29,7 @@
         <label for="timezone" class="col-2 col-form-label">TimeZone</label>
         <div class="col-10">
             <select  [(ngModel)] ="contact.TimeZone" name="timezone" id="timezone" class="form-control">
-                <option *ngFor="let tz of timeZones" >{{tz.name}}</option>
+                <option *ngFor="let timezone of timeZones | async" >{{timezone}}</option>
             </select>
       </div> 
     </div>   
