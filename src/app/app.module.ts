@@ -1,3 +1,4 @@
+import { TimezonesService } from './services/timezones.service';
 import { environment } from './../environments/environment';
 import { AuthService } from './services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -63,7 +64,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
-  providers: [RemindersService, AuthGuardService, ContactsService, AuthService],
+  providers: [RemindersService, AuthGuardService, ContactsService, AuthService, TimezonesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
