@@ -4,7 +4,7 @@ import { ContactsService } from '../../services/contacts.service';
 import { ActivatedRoute } from '@angular/router';
 import { Contact } from '../../Models/contact';
 
-import { AngularFireDatabase } from 'angularfire2/database'; 
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 
 
@@ -37,7 +37,15 @@ export class ContactEditComponent implements OnInit {
     const id = +this.route.snapshot.params['id'];
     this.contact = this.contactService.getContact(id);
     if (id > 0) {this.pageTitle = 'Contact Edit'; }
+
     this.timeZones = this.db.list('/TimeZone').valueChanges();
+
+    // this.db.list('/TimeZone')
+    // .valueChanges()
+    // .subscribe(timeZones => {
+    //     this.timeZones = timeZones;
+    //     console.log(this.timeZones);
+    // });
   }
 
   SaveContact() {
