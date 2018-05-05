@@ -17,6 +17,8 @@ export class ContactEditComponent implements OnInit {
   contact: Contact;
   debugMsg: string;
   timeZones: Observable<any[]>;
+  //timeZones: any[];
+
 
   // C:\projects\learn\angular\AppointmentReminder>npm install --save firebase angularfire2
 
@@ -30,6 +32,11 @@ export class ContactEditComponent implements OnInit {
     if (id > 0) {this.pageTitle = 'Contact Edit'; }
 
     this.timeZones = this.timeZoneService.getTimeZones();
+    this.timeZones.forEach(item => {console.log(item); }); //looks like array
+
+    this.debugMsg = JSON.stringify(this.timeZones) + " " + this.contact.TimeZone;
+
+    //this.timeZones = this.timeZoneService.getTimeZones().subscribe(timeZones => this.timeZones = timeZones);
   }
 
   SaveContact() {
