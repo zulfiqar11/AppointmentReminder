@@ -32,11 +32,12 @@ export class ContactEditComponent implements OnInit {
     if (id > 0) {this.pageTitle = 'Contact Edit'; }
 
     this.timeZones = this.timeZoneService.getTimeZones();
+
+    /*
     this.timeZones.forEach(item => {console.log(item); }); //looks like array
-
     this.debugMsg = JSON.stringify(this.timeZones) + " " + this.contact.TimeZone;
-
-    //this.timeZones = this.timeZoneService.getTimeZones().subscribe(timeZones => this.timeZones = timeZones);
+    this.timeZones = this.timeZoneService.getTimeZones().subscribe(timeZones => this.timeZones = timeZones);
+    */
   }
 
   SaveContact() {
