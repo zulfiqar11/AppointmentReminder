@@ -10,13 +10,16 @@ import { Contact } from '../../Models/contact';
 })
 export class ContactDetailComponent implements OnInit {
 
-  id: number;
-  contact: Contact;
+  contactId: number;
+  profileId: number;
+  contact$;
+
   constructor(private route: ActivatedRoute, private contactService: ContactsService) {
-    this.id = +this.route.snapshot.params['id'];
+    this.profileId = 1;
+    this.contactId = 4; // +this.route.snapshot.params['id'];
   }
 
   ngOnInit() {
-    this.contact = this.contactService.getContact(this.id);
+    this.contact$ = this.contactService.getContact(this.profileId , this.contactId);
   }
 }

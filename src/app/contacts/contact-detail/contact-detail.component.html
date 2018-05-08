@@ -1,10 +1,17 @@
-<form>
+
+{{ contact$ | async | json }}
+
+<!-- {{ (contact$ | async).FirstName }} -->
+
+
+
+<!-- <form>
     <div class="container">
       <h3>Contact Details</h3>
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">First Name</label>
         <div class="col-sm-10">
-            <label class="col-sm-2 col-form-label">{{contact.FirstName}}</label>
+            <label class="col-sm-2 col-form-label">{{contact.FirstName.$value}}</label>
         </div>
       </div>
   
@@ -37,4 +44,4 @@
       </div>
       <button [routerLink]="['/contacts']" class="btn btn-primary">Back</button>
     </div>
-  </form>
+  </form> -->

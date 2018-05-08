@@ -12,7 +12,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let contact of contacts">
+              <tr *ngFor="let contact of contacts | async">
                 <td>
                   <a [routerLink]="['/contacts', contact.id]">
                     {{contact.FirstName}}

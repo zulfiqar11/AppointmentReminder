@@ -27,11 +27,11 @@ export class ContactEditComponent implements OnInit {
                 private timeZoneService: TimezonesService ) { }
 
   ngOnInit() {
-    const id = +this.route.snapshot.params['id'];
-    this.contact = this.contactService.getContact(id);
-    if (id > 0) {this.pageTitle = 'Contact Edit'; }
+    // const id = +this.route.snapshot.params['id'];
+    // this.contact = this.contactService.getContact(id);
+    // if (id > 0) {this.pageTitle = 'Contact Edit'; }
 
-    this.timeZones = this.timeZoneService.getTimeZones();
+    // this.timeZones = this.timeZoneService.getTimeZones();
 
     /*
     this.timeZones.forEach(item => {console.log(item); }); //looks like array
