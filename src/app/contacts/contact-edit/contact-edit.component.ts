@@ -14,24 +14,33 @@ import { Observable } from 'rxjs/Observable';
 export class ContactEditComponent implements OnInit {
 
   pageTitle = 'Contact Add';
-  contact: Contact;
+//  contact: Contact;
   debugMsg: string;
   timeZones: Observable<any[]>;
-  //timeZones: any[];
+  contactId: number;
+  profileId: number;
+  contact$;
 
 
   // C:\projects\learn\angular\AppointmentReminder>npm install --save firebase angularfire2
 
   constructor(private contactService: ContactsService,
                 private route: ActivatedRoute,
-                private timeZoneService: TimezonesService ) { }
+                private timeZoneService: TimezonesService ) { 
+
+                  this.profileId = +this.route.snapshot.params['pid'];
+                  this.contactId = +this.route.snapshot.params['cid'];
+
+                }
 
   ngOnInit() {
+    if (this.contactId > 0) {this.pageTitle = 'Contact Edit'; }
+    this.timeZones = this.timeZoneService.getTimeZones();
+    this.contact$ = this.contactService.getContact(this.profileId , this.contactId);
     // const id = +this.route.snapshot.params['id'];
     // this.contact = this.contactService.getContact(id);
-    // if (id > 0) {this.pageTitle = 'Contact Edit'; }
-
-    // this.timeZones = this.timeZoneService.getTimeZones();
+  
+    
 
     /*
     this.timeZones.forEach(item => {console.log(item); }); //looks like array
@@ -41,7 +50,7 @@ export class ContactEditComponent implements OnInit {
   }
 
   SaveContact() {
-    this.debugMsg = JSON.stringify(this.contact);
+    this.debugMsg = JSON.stringify(this.contact$);
   }
 
 }

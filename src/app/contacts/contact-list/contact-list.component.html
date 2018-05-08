@@ -14,7 +14,7 @@
             <tbody>
               <tr *ngFor="let contact of contacts | async">
                 <td>
-                  <a [routerLink]="['/contacts', contact.id]">
+                  <a [routerLink]="['/contacts', contact.pid, contact.id]">
                     {{contact.FirstName}}
                   </a>
                 </td>
@@ -23,7 +23,7 @@
                 <td>{{contact.Email}}</td>
                 <td>{{contact.TimeZone}}</td>
                 <td>
-                    <a [routerLink]="['/contacts', contact.id, 'edit']" class="btn btn-primary">Edit</a>
+                    <a [routerLink]="['/contacts', contact.pid, contact.id, 'edit']" class="btn btn-primary">Edit</a>
                   </td>
                 </tr>
             </tbody>
