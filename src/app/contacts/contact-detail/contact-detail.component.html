@@ -1,47 +1,42 @@
-
-{{ contact$ | async | json }}
-
-<!-- {{ (contact$ | async).FirstName }} -->
-
-
-
-<!-- <form>
-    <div class="container">
-      <h3>Contact Details</h3>
-      <div class="form-group row">
-        <label class="col-sm-2 col-form-label">First Name</label>
-        <div class="col-sm-10">
-            <label class="col-sm-2 col-form-label">{{contact.FirstName.$value}}</label>
+<div *ngIf="contact$ | async as contact">
+    <form>
+        <div class="container">
+        <h3>Contact Details</h3>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">First Name</label>
+            <div class="col-sm-10">
+                <label class="col-sm-2 col-form-label">{{contact.FirstName}}</label>
+            </div>
         </div>
-      </div>
-  
-      <div class="form-group row">
-          <label class="col-sm-2 col-form-label">Last Name</label>
-          <div class="col-sm-10">
-              <label class="col-sm-2 col-form-label">{{contact.LastName}}</label>
-          </div>
-      </div>
-  
-      <div class="form-group row">
-          <label class="col-sm-2 col-form-label">Phone</label>
-          <div class="col-sm-10">
-              <label class="col-sm-2 col-form-label">{{contact.Phone}}</label>
-          </div>
-      </div>
-  
-      <div class="form-group row">
-          <label class="col-sm-2 col-form-label">Email</label>
-          <div class="col-sm-10">
-              <label class="col-sm-2 col-form-label">{{contact.Email}}</label>
-          </div>
-      </div>
-  
-      <div class="form-group row">
-          <label class="col-sm-2 col-form-label">Time Zone</label>
-          <div class="col-sm-10">
-              <label class="col-sm-2 col-form-label">{{contact.TimeZone}}</label>
-          </div>
-      </div>
-      <button [routerLink]="['/contacts']" class="btn btn-primary">Back</button>
-    </div>
-  </form> -->
+    
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-10">
+                <label class="col-sm-2 col-form-label">{{contact.LastName}}</label>
+            </div>
+        </div>
+    
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Phone</label>
+            <div class="col-sm-10">
+                <label class="col-sm-2 col-form-label">{{contact.Phone}}</label>
+            </div>
+        </div>
+    
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <label class="col-sm-2 col-form-label">{{contact.Email}}</label>
+            </div>
+        </div>
+    
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Time Zone</label>
+            <div class="col-sm-10">
+                <label class="col-sm-2 col-form-label">{{contact.TimeZone}}</label>
+            </div>
+        </div>
+        <button [routerLink]="['/contacts']" class="btn btn-primary">Back</button>
+        </div>
+    </form>
+</div>
