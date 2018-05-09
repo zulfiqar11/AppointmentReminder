@@ -1,12 +1,14 @@
+import { ProfileService } from './profile.service';
 import { Injectable } from '@angular/core';
 import { Contact } from '../Models/contact';
 
 import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ContactsService {
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private db: AngularFireDatabase) {}
 
   getContacts(profileId: number) {
     return this.db.list('/contacts/' + profileId.toString()).valueChanges();
