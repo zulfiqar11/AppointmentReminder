@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
-//import { Http } from '@angular/http';
+import {AngularFireAuth} from 'angularfire2/auth';
 
 @Injectable()
 export class AuthService {
+  
+  constructor(private fireAuth: AngularFireAuth) { }
+
+  public signup(email: string, password: string): Promise<any>{
+    return this.fireAuth.auth.createUserWithEmailAndPassword(email, password);
+  }
 
   validLogin: boolean
-  constructor() { }
-
   login() {
-    //return this.http.post('/api/authenticate', JSON.stringify(credentials));
     this.validLogin = true;
   }
 

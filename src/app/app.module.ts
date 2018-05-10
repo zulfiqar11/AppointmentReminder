@@ -5,8 +5,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireDatabaseModule} from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 import { AppComponent } from './app.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
@@ -14,7 +17,6 @@ import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.co
 import { ReminderListComponent } from './reminders/reminder-list/reminder-list.component';
 import { RemindersService } from './services/reminders.service';
 import { HomeComponent } from './home/home/home.component';
-import { LoginComponent } from './login/login/login.component';
 import { ContactsService } from './services/contacts.service';
 import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
 import { ReminderDetailComponent } from './reminders/reminder-detail/reminder-detail.component';
@@ -24,6 +26,9 @@ import { NoAccessComponent } from './no-access/no-access.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ReminderEditComponent } from './reminders/reminder-edit/reminder-edit.component';
 import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
+import { SignupComponent } from './authentication/signup/signup.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 
 const appRoutes: Routes = [
@@ -34,6 +39,7 @@ const appRoutes: Routes = [
   { path: 'contacts/:pid/:cid', component: ContactDetailComponent },
   { path: 'contacts', component: ContactListComponent , canActivate: [AuthGuardService]},
   { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService]},
   { path: 'no-access', component: NoAccessComponent },
   { path: 'home', component: HomeComponent },
@@ -55,16 +61,23 @@ const appRoutes: Routes = [
     AdminComponent,
     NoAccessComponent,
     ReminderEditComponent,
-    ContactEditComponent
+    ContactEditComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AuthenticationModule,
+    AngularFireAuthModule
   ],
-  providers: [RemindersService, AuthGuardService, ContactsService, AuthService, TimezonesService],
+  providers: [RemindersService, 
+                AuthGuardService, 
+                ContactsService, 
+                AuthService, 
+                TimezonesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
