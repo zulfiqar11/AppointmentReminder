@@ -24,18 +24,18 @@ export class LoginComponent implements OnInit {
               private authService: AuthService,
               private angularFireAuth: AngularFireAuth) {
 
-    this.angularFireAuth.auth.onAuthStateChanged(user => {
-                                                    if (user) {
-                                                      this.getUserInfo(user.uid);
-                                                    }
-    });
+    // this.angularFireAuth.auth.onAuthStateChanged(user => {
+    //                                                 if (user) {
+    //                                                   this.getUserInfo(user.uid);
+    //                                                 }
+    // });
   }
 
   onLogin(loginFormData): void {
     this.authService.login(loginFormData.value.email, loginFormData.value.password).then((user) => {
                             // Login user
                             const uid: string = user.uid;
-                            this.getUserInfo(uid);
+                            //this.getUserInfo(uid);
                           }).catch((error) => {
                             this.errorMessage = error.message;
                             this.showError = true;

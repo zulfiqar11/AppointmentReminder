@@ -5,6 +5,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
 export class AuthService {
 
   validLogin: boolean;
+  result: Promise<any>;
 
   constructor(private fireAuth: AngularFireAuth) { }
 
