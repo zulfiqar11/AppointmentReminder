@@ -10,8 +10,8 @@ import { User } from '../../Models/user';
 })
 export class SignupComponent implements OnInit {
 
-  errorMessage: string;
-  showError: boolean;
+  errorMessage = '';
+  showError: boolean ;
 
   constructor(private authService: AuthService,
     private userService: UserService) {
@@ -21,14 +21,14 @@ export class SignupComponent implements OnInit {
   }
 
   onSignup(signupFormData): void {
-    this.authService.signup(signupFormData.value.email, 
+    this.authService.signup(signupFormData.value.email,
     signupFormData.value.password).then((userInfo) => {
        // Register the new user
-       const user: User = 
+       const user: User =
             new User(
                 signupFormData.value.email,
-                signupFormData.value.name, 
-                signupFormData.value.mobile, 
+                signupFormData.value.name,
+                signupFormData.value.mobile,
                 userInfo.uid);
 
         this.userService.addUser(user);

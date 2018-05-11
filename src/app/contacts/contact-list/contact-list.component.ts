@@ -19,7 +19,6 @@ export class ContactListComponent implements OnInit {
 
   ngOnInit() {
     this.profile = this.profileService.getProfile();
-    let id = (this.profile | async).id;
     this.profileId = 1;
     this.contacts = this.contactsService.getContacts(this.profileId);
   }

@@ -1,23 +1,51 @@
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { UserService } from '../../services/user.service';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { User } from '../../Models/user';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router, private authService: AuthService) { }
+  errorMessage: string;
+  showError: boolean;
+  private user: User;
 
-  ngOnInit() {
+  ngOnInit(): void {  }
+
+  constructor(private userService: UserService,
+              private router: Router,
+              private authService: AuthService,
+              private angularFireAuth: AngularFireAuth) {
+
+    this.angularFireAuth.auth.onAuthStateChanged(user => {
+                                                    if (user) {
+                                                      this.getUserInfo(user.uid);
+                                                    }
+    });
   }
 
-  login() {
-    this.authService.login();
-    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
-    this.router.navigateByUrl(returnUrl || '/');
+  onLogin(loginFormData): void {
+    this.authService.login(loginFormData.value.email, loginFormData.value.password).then((user) => {
+                            // Login user
+                            const uid: string = user.uid;
+                            this.getUserInfo(uid);
+                          }).catch((error) => {
+                            this.errorMessage = error.message;
+                            this.showError = true;
+                          });
+  }
+
+  private getUserInfo(uid: string) {
+    this.userService.getUser(uid).subscribe(snapshot => {
+      this.user = snapshot;
+    });
   }
 
 

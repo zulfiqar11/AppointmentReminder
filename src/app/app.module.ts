@@ -30,7 +30,7 @@ import { ContactEditComponent } from './contacts/contact-edit/contact-edit.compo
 import { SignupComponent } from './authentication/signup/signup.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { AuthenticationModule } from './authentication/authentication.module';
-
+import { ErrorAlertComponent } from './authentication/error-alert/error-alert.component';
 
 const appRoutes: Routes = [
   { path: 'reminders/:id/edit', component: ReminderEditComponent },
@@ -63,7 +63,8 @@ const appRoutes: Routes = [
     NoAccessComponent,
     ReminderEditComponent,
     ContactEditComponent,
-    SignupComponent
+    SignupComponent,
+    ErrorAlertComponent
   ],
   imports: [
     BrowserModule,
@@ -74,13 +75,6 @@ const appRoutes: Routes = [
     AuthenticationModule,
     AngularFireAuthModule
   ],
-<<<<<<< HEAD
-  providers: [RemindersService, 
-                AuthGuardService, 
-                ContactsService, 
-                AuthService, 
-                TimezonesService],
-=======
   providers: [
                 RemindersService,
                 AuthGuardService,
@@ -89,7 +83,6 @@ const appRoutes: Routes = [
                 TimezonesService,
                 ProfileService
               ],
->>>>>>> 8212317a4a2f0f4d22f8ae1a87cf78e7443a9bef
   bootstrap: [AppComponent]
 })
 export class AppModule { }
