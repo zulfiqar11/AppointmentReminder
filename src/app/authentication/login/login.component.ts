@@ -48,5 +48,14 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  onReset(resetFormData): void {
+    this.authService.resetPassword(resetFormData.value.email).then(() => {
+      alert('Reset instruction sent to your mail');
+      }).catch((error) => {
+        this.errorMessage = error.message;
+        this.showError = true;
+      });
+  }
+
 
 }

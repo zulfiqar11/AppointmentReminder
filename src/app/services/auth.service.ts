@@ -21,6 +21,15 @@ export class AuthService {
     return this.fireAuth.auth.sendPasswordResetEmail(email);
   }
 
+  public isAuthenticated(): boolean {
+    const user = this.fireAuth.auth.currentUser;
+    return user ? true : false;
+  }
+
+  public signout() {
+    return this.fireAuth.auth.signOut();
+  }
+
   logOut() {
     this.validLogin = false;
   }
