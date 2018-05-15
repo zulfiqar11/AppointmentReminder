@@ -9,17 +9,21 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
-  authoService: AuthService;
+  //authoService: AuthService;
 
-  constructor(private router: Router, private authService: AuthService) { this.authoService = this.authoService; }
+  constructor(private router: Router, private authService: AuthService) { 
+    //this.authoService = this.authoService; 
+  }
 
   logOut() {
-    this.authService.logOut();
-    this.authoService = this.authService;
+    // this.authService.logOut();
+    // this.authoService = this.authService;
+    // this.router.navigateByUrl('/home');
+    this.authService.signout();
     this.router.navigateByUrl('/home');
   }
 
-  ngOnInit(){
+  ngOnInit() {
 
   }
 

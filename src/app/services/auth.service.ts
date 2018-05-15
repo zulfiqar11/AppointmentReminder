@@ -4,7 +4,6 @@ import {AngularFireAuth} from 'angularfire2/auth';
 @Injectable()
 export class AuthService {
 
-  validLogin: boolean;
   result: Promise<any>;
 
   constructor(private fireAuth: AngularFireAuth) { }
@@ -22,19 +21,10 @@ export class AuthService {
   }
 
   public isAuthenticated(): boolean {
-    const user = this.fireAuth.auth.currentUser;
-    return user ? true : false;
+    return this.fireAuth.auth.currentUser ? true : false;
   }
 
   public signout() {
     return this.fireAuth.auth.signOut();
-  }
-
-  logOut() {
-    this.validLogin = false;
-  }
-
-  isLoggedIn() {
-    return this.validLogin;
   }
 }

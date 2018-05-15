@@ -7,15 +7,15 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a routerLinkActive="active" routerLink="/reminders" class="nav-link">Reminders</a>
+          <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()" routerLink="/reminders" class="nav-link">Reminders</a>
         </li>
         <li class="nav-item">
-          <a routerLinkActive="active" routerLink="/contacts" class="nav-link">Contacts</a>
+          <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()" routerLink="/contacts" class="nav-link">Contacts</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-          <a *ngIf="!authService.isLoggedIn()" routerLinkActive="active current" routerLink="/login" class="nav-link">Login</a>
-          <a *ngIf="authService.isLoggedIn()" routerLinkActive="active current" (click)="logOut()" class="nav-link">Logout</a>
+          <a *ngIf="!authService?.isAuthenticated()" routerLinkActive="active current" routerLink="/login" class="nav-link">Login</a>
+          <a *ngIf="authService?.isAuthenticated()" routerLinkActive="active current" (click)="logOut()" class="nav-link">Logout</a>
       </form>
     </div>
   </nav>
