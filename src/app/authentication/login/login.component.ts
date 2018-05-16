@@ -13,14 +13,18 @@ import { User } from '../../Models/user';
 
 export class LoginComponent implements OnInit {
 
+  returnUrl: string;
   errorMessage: string;
   showError: boolean;
   private user: User;
 
-  ngOnInit(): void {  }
+  ngOnInit(): void {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
 
   constructor(private userService: UserService,
               private router: Router,
+              private route: ActivatedRoute,
               private authService: AuthService,
               private angularFireAuth: AngularFireAuth) {
 
@@ -36,6 +40,7 @@ export class LoginComponent implements OnInit {
                             // Login user
                             const uid: string = user.uid;
                             this.getUserInfo(uid);
+                            this.router.navigateByUrl(this.returnUrl);
                           }).catch((error) => {
                             this.errorMessage = error.message;
                             this.showError = true;
