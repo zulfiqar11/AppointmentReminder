@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
                             // Login user
                             const uid: string = user.uid;
                             this.getUserInfo(uid);
+                            this.userService.saveUser(this.user);
                             this.router.navigateByUrl(this.returnUrl);
                           }).catch((error) => {
                             this.errorMessage = error.message;
