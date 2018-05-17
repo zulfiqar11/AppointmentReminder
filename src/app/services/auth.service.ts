@@ -27,4 +27,13 @@ export class AuthService {
   public signout() {
     return this.fireAuth.auth.signOut();
   }
+
+  public changeEmail(email: string): Promise<any> {
+    return this.fireAuth.auth.currentUser.updateEmail(email);
+  }
+
+  public changePassword(password: string): Promise<any> {
+    return this.fireAuth.auth.currentUser.updatePassword(password);
+  }
+
 }

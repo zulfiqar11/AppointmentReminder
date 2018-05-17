@@ -14,8 +14,9 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-          <a *ngIf="!authService?.isAuthenticated()" routerLinkActive="active current" routerLink="/login" class="nav-link">Login</a>
-          <a *ngIf="authService?.isAuthenticated()" routerLinkActive="active current" (click)="logOut()" class="nav-link">Logout</a>
+          <button *ngIf="!authService?.isAuthenticated()" routerLinkActive="active current" routerLink="/login" class="btn btn-info">LOGIN</button>
+          <button *ngIf="authService?.isAuthenticated()" type="button" routerLink="/userprofile" class="btn btn-info">Profile</button>
+          <button *ngIf="authService?.isAuthenticated()" type="button" (click)='logOut()' class="btn btn-info">LOGOUT</button>
       </form>
     </div>
   </nav>

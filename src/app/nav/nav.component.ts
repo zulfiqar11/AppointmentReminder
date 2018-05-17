@@ -1,5 +1,5 @@
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private router: Router, private authService: AuthService) {
+  authService: AuthService;
+  constructor(private router: Router, private authoService: AuthService) {
+    this.authService = authoService;
   }
 
   logOut() {
