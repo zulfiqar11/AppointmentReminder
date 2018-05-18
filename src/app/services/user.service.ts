@@ -17,7 +17,10 @@ export class UserService {
   }
 
   public saveUser(user: User): any {
-    this.subject.next(user);
+    console.log('saveuser in the user service-------------' + user.name);
+    //this.subject.next(user);
+    // const uid1: string = user.name;
+    // console.log('calling inside saveUser ----' + uid1);
   }
 
   public getSavedUser(): BehaviorSubject<User> {
