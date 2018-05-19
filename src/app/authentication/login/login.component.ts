@@ -40,8 +40,6 @@ export class LoginComponent implements OnInit {
                             // Login user
                             const uid: string = user.uid;
                             this.getUserInfo(uid);
-                            console.log('calling before saveuser ----' + this.user.name);
-                            this.userService.saveUser(user);
                             this.router.navigateByUrl(this.returnUrl);
                           }).catch((error) => {
                             this.errorMessage = error.message;
@@ -52,8 +50,7 @@ export class LoginComponent implements OnInit {
   private getUserInfo(uid: string) {
     this.userService.getUser(uid).subscribe(snapshot => {
       this.user = snapshot;
-      const uid1: string = this.user.name;
-      console.log('calling inside getUserInfo ----' + uid1);
+      this.userService.saveUser(this.user);
     });
   }
 

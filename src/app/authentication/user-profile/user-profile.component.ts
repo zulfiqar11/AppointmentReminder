@@ -24,7 +24,6 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
       this.user = this.userService.getSavedUser().getValue();
-      console.log('userprofile -- ngoninit ------- ' + this.user.email);
   }
 
   onLogout(): void {
