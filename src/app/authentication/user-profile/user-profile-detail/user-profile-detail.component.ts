@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
+import { AuthService } from '../../../services/auth.service';
+import { UserService } from '../../../services/user.service';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
-import { User } from '../../Models/user';
+import { User } from '../../../Models/user';
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  selector: 'app-user-profile-detail',
+  templateUrl: './user-profile-detail.component.html',
+  styleUrls: ['./user-profile-detail.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class UserProfileDetailComponent implements OnInit {
 
-  profileImage: any = '../../assets/images/person_edit.png';
+  profileImage: any = '../../../assets/images/person_edit.png';
 
   user: User;
 
@@ -33,4 +33,5 @@ export class UserProfileComponent implements OnInit {
   navigateToLogin() {
       this.router.navigateByUrl('/login');
   }
+
 }

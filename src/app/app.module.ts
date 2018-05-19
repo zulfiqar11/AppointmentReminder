@@ -32,6 +32,7 @@ import { LoginComponent } from './authentication/login/login.component';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { ErrorAlertComponent } from './authentication/error-alert/error-alert.component';
 import { UserProfileComponent } from './authentication/user-profile/user-profile.component';
+import { UserProfileDetailComponent } from './authentication/user-profile/user-profile-detail/user-profile-detail.component';
 
 const appRoutes: Routes = [
   { path: 'reminders/:id/edit', component: ReminderEditComponent },
@@ -42,7 +43,7 @@ const appRoutes: Routes = [
   { path: 'contacts', component: ContactListComponent , canActivate: [AuthGuardService]},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  { path: 'userprofile', component: UserProfileComponent , canActivate: [AuthGuardService]},
+  { path: 'userprofiledetail', component: UserProfileDetailComponent , canActivate: [AuthGuardService]},
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService]},
   { path: 'no-access', component: NoAccessComponent },
   { path: 'home', component: HomeComponent },
@@ -66,7 +67,7 @@ const appRoutes: Routes = [
     ReminderEditComponent,
     ContactEditComponent,
     SignupComponent,
-    UserProfileComponent,
+    UserProfileDetailComponent,
     ErrorAlertComponent
   ],
   imports: [
