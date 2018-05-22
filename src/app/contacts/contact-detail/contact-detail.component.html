@@ -1,39 +1,39 @@
-<div *ngIf="contact$ | async as contact">
+<div *ngIf="contact">
     <form>
         <div class="container">
         <h3>Contact Details</h3>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">First Name</label>
             <div class="col-sm-10">
-                <label class="col-sm-2 col-form-label">{{contact.FirstName}}</label>
+                <label class="col-sm-2 col-form-label">{{contact.firstname}}</label>
             </div>
         </div>
     
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Last Name</label>
             <div class="col-sm-10">
-                <label class="col-sm-2 col-form-label">{{contact.LastName}}</label>
+                <label class="col-sm-2 col-form-label">{{contact.lastname}}</label>
             </div>
         </div>
     
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Phone</label>
             <div class="col-sm-10">
-                <label class="col-sm-2 col-form-label">{{contact.Phone}}</label>
+                <label class="col-sm-2 col-form-label">{{contact.phone}}</label>
             </div>
         </div>
     
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
-                <label class="col-sm-2 col-form-label">{{contact.Email}}</label>
+                <label class="col-sm-2 col-form-label">{{contact.email}}</label>
             </div>
         </div>
     
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Time Zone</label>
             <div class="col-sm-10">
-                <label class="col-sm-2 col-form-label">{{contact.TimeZone}}</label>
+                <label class="col-sm-2 col-form-label">{{contact.timezone}}</label>
             </div>
         </div>
         <button [routerLink]="['/contacts']" class="btn btn-primary">Back</button>

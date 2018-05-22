@@ -1,18 +1,18 @@
 
 export class Contact {
-    id: string;
-    FirstName: string;
-    LastName: string;
-    Email: string;
-    Phone: string;
-    TimeZone: string;
+    cid: string;
+    firstname: string;
+    lastname: string;
+    email: string;
+    phone: string;
+    timezone: string;
 
-    constructor ( id: string, firstName: string, lastName: string,  phone: string, email: string, timezone: string)  {
-        this.id = id;
-        this.FirstName = firstName;
-        this.LastName = lastName;
-        this.Email = email;
-        this.Phone = phone;
-        this.TimeZone = timezone;
+    constructor ( cid: string, firstname: string, lastname: string,  phone: string, email: string, timezone: string)  {
+        this.cid = cid;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.phone = phone;
+        this.timezone = timezone;
     }
 }

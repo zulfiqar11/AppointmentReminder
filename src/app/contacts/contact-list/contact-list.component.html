@@ -14,7 +14,7 @@
             <tbody>
               <tr *ngFor="let contact of contacts">
                 <td>
-                  <a [routerLink]="['/contacts', user.uid, contact.cid]">
+                  <a [routerLink]="['/contacts', user.uid, contact.cid]" class="btn btn-primary">
                     {{contact.firstname}}
                   </a>
                 </td>

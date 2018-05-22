@@ -11,6 +11,7 @@ export class ContactsService {
 
   contacts: Contact[];
   constructor(private db: AngularFireDatabase) {}
+  contact: Contact;
 
   getContacts(userid: string): Contact[] {
     this.db.list<Contact>('/users/contacts/' + userid).valueChanges()
@@ -18,7 +19,14 @@ export class ContactsService {
     return this.contacts;
   }
 
-  getContact(profileId: number, contactId: number) {
-    return (this.db.object('/contacts/' + profileId.toString() + '/' + contactId.toString()).valueChanges());
+  getContact(userId: string, contactId: string): Contact {
+    this.db.object<Contact>('/users/contacts/' + userId + '/' + contactId).valueChanges()
+                  .subscribe(contact => { this.contact = contact; });
+    return this.contact;
   }
 }
+
+// return (this.db.object('/contacts/' + profileId.toString() + '/' + contactId.toString()).valueChanges());
+// public getUser(uid: string): Observable<User> {
+//   return this.db.object<User>(`/users/` + uid).valueChanges();
+// }
