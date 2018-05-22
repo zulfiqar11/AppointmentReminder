@@ -22,4 +22,9 @@ export class UserProfileEditComponent implements OnInit {
       this.user = this.userService.getSavedUser().getValue();
   }
 
+  UpdateProfile()  {
+    this.userService.updateUser(this.user);
+    this.router.navigateByUrl('/userprofiledetail');
+  }
+
 }

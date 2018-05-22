@@ -28,18 +28,10 @@ export class UserService {
     return this.db.object<User>(`/users/` + uid).valueChanges();
   }
 
-  public updateEmail(user: User, newEmail: string): void {
-    this.db.object<User>(`/users/` + user.uid).update({email: newEmail});
-    this.saveUser(user);
-  }
-
-  public updateMobile(user: User, mobile: string): void {
-    this.db.object<User>(`/users/` + user.uid).update({mobile: mobile});
-    this.saveUser(user);
-  }
-
-  public updateName(user: User, name: string): void {
-    this.db.object<User>(`/users/` + user.uid).update({name: name});
+  updateUser(user: User): void {
+    this.db.object<User>(`/users/` + user.uid).update({email: user.email});
+    this.db.object<User>(`/users/` + user.uid).update({mobile: user.mobile});
+    this.db.object<User>(`/users/` + user.uid).update({name: user.name});
     this.saveUser(user);
   }
 }

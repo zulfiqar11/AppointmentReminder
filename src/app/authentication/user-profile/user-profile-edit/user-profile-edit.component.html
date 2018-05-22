@@ -1,6 +1,6 @@
 <div *ngIf="user">
   <div class="container">
-      <h3>{{pageTitle}}</h3>
+      <!-- <h3>{{pageTitle}}</h3> -->
       <div class="form-group row">
         <label for="name" class="col-2 col-form-label">Name</label>
         <div class="col-10">
@@ -20,9 +20,9 @@
         </div>
       </div>
 
-    </div>   
-      <button (click) = "SaveContact()" class="btn btn-primary">Submit</button>
-      <button [routerLink]="['/contacts']" class="btn btn-warning">Cancel</button>
-      {{debugMsg}}
+    <div>   
+      <button (click) = "UpdateProfile()" class="btn btn-primary">Update</button>
+      <button [routerLink]="['/userprofiledetail']" class="btn btn-warning">Cancel</button>
     </div>
   </div>
+</div>
