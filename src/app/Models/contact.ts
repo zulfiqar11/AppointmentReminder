@@ -1,14 +1,14 @@
 
 export class Contact {
-    id: number;
+    id: string;
     FirstName: string;
     LastName: string;
     Email: string;
     Phone: string;
     TimeZone: string;
 
-    constructor ( id: number, firstName: string, lastName: string,  phone: string, email: string, timezone: string)  {
-        this.id = name;
+    constructor ( id: string, firstName: string, lastName: string,  phone: string, email: string, timezone: string)  {
+        this.id = id;
         this.FirstName = firstName;
         this.LastName = lastName;
         this.Email = email;

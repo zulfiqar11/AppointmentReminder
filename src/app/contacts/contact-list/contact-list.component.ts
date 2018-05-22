@@ -1,5 +1,8 @@
-import { ProfileService } from './../../services/profile.service';
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../Models/user';
+import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
+import { Router } from '@angular/router';
 import { ContactsService } from '../../services/contacts.service';
 import { Contact } from '../../Models/contact';
 import { Observable } from 'rxjs/Observable';
@@ -11,16 +14,15 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ContactListComponent implements OnInit {
 
-  profile: Observable<{}>;
-  contacts: Observable<any[]>;
-  profileId: number;
+  contacts: Contact[];
+  user: User;
 
-  constructor(private contactsService: ContactsService, private profileService: ProfileService) { }
-
-  ngOnInit() {
-    this.profile = this.profileService.getProfile();
-    this.profileId = 1;
-    this.contacts = this.contactsService.getContacts(this.profileId);
+  constructor(private userService: UserService,
+              private contactsService: ContactsService) {
   }
 
+  ngOnInit() {
+    this.user = this.userService.getSavedUser().getValue();
+    this.contacts = this.contactsService.getContacts(this.user.uid);
+  }
 }

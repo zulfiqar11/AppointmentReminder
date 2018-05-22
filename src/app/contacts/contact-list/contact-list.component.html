@@ -12,21 +12,21 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let contact of contacts | async">
+              <tr *ngFor="let contact of contacts">
                 <td>
-                  <a [routerLink]="['/contacts', contact.pid, contact.id]">
-                    {{contact.FirstName}}
+                  <a [routerLink]="['/contacts', user.uid, contact.cid]">
+                    {{contact.firstname}}
                   </a>
                 </td>
-                <td>{{contact.LastName}}</td>
-                <td>{{contact.Phone}}</td>
-                <td>{{contact.Email}}</td>
-                <td>{{contact.TimeZone}}</td>
+                <td>{{contact.lastname}}</td>
+                <td>{{contact.phone}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.timezone}}</td>
                 <td>
-                    <a [routerLink]="['/contacts', contact.pid, contact.id, 'edit']" class="btn btn-primary">Edit</a>
+                    <a [routerLink]="['/contacts', user.uid, contact.cid, 'edit']" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
-                  <a [routerLink]="['/contacts', contact.pid, contact.id, 'delete']" class="btn btn-primary">Delete</a>
+                  <a [routerLink]="['/contacts', user.uid, contact.cid, 'delete']" class="btn btn-primary">Delete</a>
                 </td>
               </tr>
             </tbody>
