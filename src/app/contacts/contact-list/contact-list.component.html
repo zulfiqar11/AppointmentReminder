@@ -24,8 +24,11 @@
                 <td>{{contact.TimeZone}}</td>
                 <td>
                     <a [routerLink]="['/contacts', contact.pid, contact.id, 'edit']" class="btn btn-primary">Edit</a>
-                  </td>
-                </tr>
+                </td>
+                <td>
+                  <a [routerLink]="['/contacts', contact.pid, contact.id, 'delete']" class="btn btn-primary">Delete</a>
+                </td>
+              </tr>
             </tbody>
           </table>
     </div>

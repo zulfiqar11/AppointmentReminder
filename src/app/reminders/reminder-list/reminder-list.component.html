@@ -26,11 +26,8 @@
               <td>{{reminder.Time}}</td>
               <td>{{reminder.Frequency}}</td>
               <td>
-                <a 
-                    [routerLink] ="['/reminders', reminder.id, 'edit']"
-                    class="btn btn-primary">
-                  Edit
-                </a>
+                <a [routerLink] ="['/reminders', reminder.id, 'edit']" class="btn btn-primary"> Edit </a>
+                <a [routerLink] ="['/reminders', reminder.id, 'delete']" class="btn btn-primary"> Delete </a>
               </td>
             </tr>
           </tbody>
