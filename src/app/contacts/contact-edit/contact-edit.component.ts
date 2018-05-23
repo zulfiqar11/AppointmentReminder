@@ -1,10 +1,13 @@
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from './../../services/user.service';
 import { TimezonesService } from './../../services/timezones.service';
 import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ContactsService } from '../../services/contacts.service';
-import { ActivatedRoute } from '@angular/router';
 import { Contact } from '../../Models/contact';
 import { Observable } from 'rxjs/Observable';
+import { User } from '../../Models/user';
+import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-contact-edit',
@@ -14,43 +17,34 @@ import { Observable } from 'rxjs/Observable';
 export class ContactEditComponent implements OnInit {
 
   pageTitle = 'Contact Add';
-//  contact: Contact;
   debugMsg: string;
   timeZones: Observable<any[]>;
-  contactId: number;
-  profileId: number;
-  contact$;
+  contactId: string;
+  userId: string;
+  contact: Contact;
+
 
 
   // C:\projects\learn\angular\AppointmentReminder>npm install --save firebase angularfire2
 
   constructor(private contactService: ContactsService,
+                private router: Router,
                 private route: ActivatedRoute,
-                private timeZoneService: TimezonesService ) { 
+                private timeZoneService: TimezonesService ) {
 
-                  this.profileId = +this.route.snapshot.params['pid'];
-                  this.contactId = +this.route.snapshot.params['cid'];
-
+                  this.userId = this.route.snapshot.params['userid'];
+                  this.contactId = this.route.snapshot.params['contactid'];
                 }
 
   ngOnInit() {
-    if (this.contactId > 0) {this.pageTitle = 'Contact Edit'; }
+    this.pageTitle = 'Contact Edit';
     this.timeZones = this.timeZoneService.getTimeZones();
-    this.contact$ = this.contactService.getContact(this.profileId , this.contactId);
-    // const id = +this.route.snapshot.params['id'];
-    // this.contact = this.contactService.getContact(id);
-  
-    
-
-    /*
-    this.timeZones.forEach(item => {console.log(item); }); //looks like array
-    this.debugMsg = JSON.stringify(this.timeZones) + " " + this.contact.TimeZone;
-    this.timeZones = this.timeZoneService.getTimeZones().subscribe(timeZones => this.timeZones = timeZones);
-    */
+    this.contact = this.contactService.getContact(this.userId , this.contactId);
   }
 
   SaveContact() {
-    this.debugMsg = JSON.stringify(this.contact$);
+    this.contactService.updateContact(this.userId, this.contact);
+    this.router.navigateByUrl('/contacts');
   }
 
 }

@@ -1,39 +1,39 @@
-<div *ngIf="contact$ | async as contact">
+<div *ngIf="contact">
   <div class="container">
       <h3>{{pageTitle}}</h3>
       <div class="form-group row">
         <label for="firstName" class="col-2 col-form-label">First Name</label>
         <div class="col-10">
-          <input class="form-control" type="text" [(ngModel)] ="contact.FirstName" id="firstName">
+          <input class="form-control" type="text" [(ngModel)] ="contact.firstname" id="firstName">
         </div>
       </div>
       <div class="form-group row">
         <label for="lastName" class="col-2 col-form-label">Last Name</label>
         <div class="col-10">
-          <input class="form-control" type="text" [(ngModel)] ="contact.LastName" id="lastName">
+          <input class="form-control" type="text" [(ngModel)] ="contact.lastname" id="lastName">
         </div>
       </div>
       <div class="form-group row">
         <label for="phone" class="col-2 col-form-label">Phone</label>
         <div class="col-10">
-          <input class="form-control" type="Phone" [(ngModel)] ="contact.Phone" id="phone">
+          <input class="form-control" type="Phone" [(ngModel)] ="contact.phone" id="phone">
         </div>
       </div>
       <div class="form-group row">
           <label for="email" class="col-2 col-form-label">Email</label>
           <div class="col-10">
-            <input class="form-control" type="email" [(ngModel)] ="contact.Email" id="email">
+            <input class="form-control" type="email" [(ngModel)] ="contact.email" id="email">
           </div>
       </div>
       <div class="form-group row">
           <label for="timezone" class="col-2 col-form-label">TimeZone</label>
           <div class="col-10">
-              <select  [(ngModel)] ="contact.TimeZone" name="timezone" id="timezone" class="form-control">
+              <select  [(ngModel)] ="contact.timezone" name="timezone" id="timezone" class="form-control">
                   <option [ngValue]="timezone" *ngFor="let timezone of timeZones | async" >{{timezone}}</option>
               </select>
         </div> 
       </div>   
-      <button (click) = "SaveContact()" class="btn btn-primary">Submit</button>
+      <button (click) = "SaveContact()" class="btn btn-primary">Update</button>
       <button [routerLink]="['/contacts']" class="btn btn-warning">Cancel</button>
       {{debugMsg}}
     </div>

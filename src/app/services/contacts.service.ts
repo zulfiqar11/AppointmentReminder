@@ -24,9 +24,17 @@ export class ContactsService {
                   .subscribe(contact => { this.contact = contact; });
     return this.contact;
   }
+
+  updateContact(userId: string, contact: Contact) {
+    this.db.object<Contact>('/users/contacts/' + userId + '/' + contact.cid).update({firstname: contact.firstname});
+    this.db.object<Contact>('/users/contacts/' + userId + '/' + contact.cid).update({lastname: contact.lastname});
+    this.db.object<Contact>('/users/contacts/' + userId + '/' + contact.cid).update({email: contact.email});
+    this.db.object<Contact>('/users/contacts/' + userId + '/' + contact.cid).update({phone: contact.phone});
+    this.db.object<Contact>('/users/contacts/' + userId + '/' + contact.cid).update({timezone: contact.timezone});
+  }
+
+  addContact(userId: string, contact: Contact){
+
+  }
 }
 
-// return (this.db.object('/contacts/' + profileId.toString() + '/' + contactId.toString()).valueChanges());
-// public getUser(uid: string): Observable<User> {
-//   return this.db.object<User>(`/users/` + uid).valueChanges();
-// }
