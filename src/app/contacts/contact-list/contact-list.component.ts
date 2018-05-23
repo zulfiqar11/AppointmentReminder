@@ -17,12 +17,17 @@ export class ContactListComponent implements OnInit {
   contacts: Contact[];
   user: User;
 
-  constructor(private userService: UserService,
+  constructor(private userService: UserService, private router: Router,
               private contactsService: ContactsService) {
   }
 
   ngOnInit() {
     this.user = this.userService.getSavedUser().getValue();
     this.contacts = this.contactsService.getContacts(this.user.uid);
+  }
+
+  DeleteContact(contactId: string) {
+    this.contactsService.removeContact(this.user.uid, contactId);
+    this.router.navigateByUrl('/contacts');
   }
 }

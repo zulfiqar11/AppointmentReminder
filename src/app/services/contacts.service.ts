@@ -41,4 +41,8 @@ export class ContactsService {
                   this.db.object<Contact>('/users/contacts/' + userId + '/' + item.key).update({cid: item.key});
               });
   }
+
+  removeContact(userId: string, contactId: string) {
+    this.db.object<Contact>('/users/contacts/' + userId + '/' + contactId).remove();
+  }
 }

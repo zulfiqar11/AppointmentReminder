@@ -26,7 +26,7 @@
                     <a [routerLink]="['/contacts', user.uid, contact.cid, 'edit']" class="btn btn-primary">Edit</a>
                 </td>
                 <td>
-                  <a [routerLink]="['/contacts', user.uid, contact.cid, 'delete']" class="btn btn-primary">Delete</a>
+                  <button (click) = "DeleteContact(contact.cid)" class="btn btn-primary">Delete</button>
                 </td>
               </tr>
             </tbody>
