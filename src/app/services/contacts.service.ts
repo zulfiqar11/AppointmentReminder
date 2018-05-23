@@ -33,8 +33,9 @@ export class ContactsService {
     this.db.object<Contact>('/users/contacts/' + userId + '/' + contact.cid).update({timezone: contact.timezone});
   }
 
-  addContact(userId: string, contact: Contact){
-
+  addContact(userId: string, contact: Contact) {
+    // this.db.object(`/users/` + user.uid).set(user);
+    this.db.object('/users/contacts/' + userId).set(contact);
   }
 }
 
