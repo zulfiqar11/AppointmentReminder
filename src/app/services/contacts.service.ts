@@ -12,6 +12,7 @@ export class ContactsService {
   contacts: Contact[];
   constructor(private db: AngularFireDatabase) {}
   contact: Contact;
+  contactId: string;
 
   getContacts(userid: string): Contact[] {
     this.db.list<Contact>('/users/contacts/' + userid).valueChanges()
@@ -34,8 +35,10 @@ export class ContactsService {
   }
 
   addContact(userId: string, contact: Contact) {
-    // this.db.object(`/users/` + user.uid).set(user);
-    this.db.object('/users/contacts/' + userId).set(contact);
+    this.db.list('/users/contacts/' + userId + '/')
+              .push(contact)
+              .then((item) => {
+                  this.db.object<Contact>('/users/contacts/' + userId + '/' + item.key).update({cid: item.key});
+              });
   }
 }
-

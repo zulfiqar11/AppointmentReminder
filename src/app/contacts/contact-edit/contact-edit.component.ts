@@ -16,16 +16,10 @@ import { Route } from '@angular/compiler/src/core';
 })
 export class ContactEditComponent implements OnInit {
 
-  pageTitle = 'Contact Add';
-  debugMsg: string;
   timeZones: Observable<any[]>;
   contactId: string;
   userId: string;
   contact: Contact;
-
-
-
-  // C:\projects\learn\angular\AppointmentReminder>npm install --save firebase angularfire2
 
   constructor(private contactService: ContactsService,
                 private router: Router,
@@ -37,7 +31,6 @@ export class ContactEditComponent implements OnInit {
                 }
 
   ngOnInit() {
-    this.pageTitle = 'Contact Edit';
     this.timeZones = this.timeZoneService.getTimeZones();
     this.contact = this.contactService.getContact(this.userId , this.contactId);
   }

@@ -33,12 +33,14 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { ErrorAlertComponent } from './authentication/error-alert/error-alert.component';
 import { UserProfileDetailComponent } from './authentication/user-profile/user-profile-detail/user-profile-detail.component';
 import { UserProfileEditComponent } from './authentication/user-profile/user-profile-edit/user-profile-edit.component';
+import { ContactAddComponent } from './contacts/contact-add/contact-add.component';
 
 const appRoutes: Routes = [
   { path: 'reminders/:id/edit', component: ReminderEditComponent },
   { path: 'reminders/:id', component: ReminderDetailComponent },
   { path: 'reminders', component: ReminderListComponent, canActivate: [AuthGuardService]},
   { path: 'contacts/:userid/:contactid/edit', component: ContactEditComponent },
+  { path: 'contacts/:userid/add', component: ContactAddComponent },
   { path: 'contacts/:userid/:contactid', component: ContactDetailComponent },
   { path: 'contacts', component: ContactListComponent , canActivate: [AuthGuardService]},
   { path: 'login', component: LoginComponent },
@@ -70,7 +72,8 @@ const appRoutes: Routes = [
     SignupComponent,
     UserProfileDetailComponent,
     UserProfileEditComponent,
-    ErrorAlertComponent
+    ErrorAlertComponent,
+    ContactAddComponent
   ],
   imports: [
     BrowserModule,
