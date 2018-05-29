@@ -20,6 +20,6 @@ export class ContactDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.contact = this.contactService.getContact(this.userId , this.contactId);
+    this.contactService.getContact(this.userId , this.contactId).subscribe( c => { this.contact = c; });
   }
 }

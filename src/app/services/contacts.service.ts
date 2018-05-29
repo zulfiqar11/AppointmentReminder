@@ -9,23 +9,15 @@ import { User } from '../Models/user';
 @Injectable()
 export class ContactsService {
 
-  // contacts: Contact[];
   constructor(private db: AngularFireDatabase) {}
-  contact: Contact;
   contactId: string;
 
   getContacts(userid: string): Observable<Contact[]> {
-    // this.db.list<Contact>('/users/contacts/' + userid).valueChanges()
-    //         .subscribe(contacts => { this.contacts = contacts; });
-    // return this.contacts;
-
     return this.db.list<Contact>('/users/contacts/' + userid).valueChanges();
   }
 
-  getContact(userId: string, contactId: string): Contact {
-    this.db.object<Contact>('/users/contacts/' + userId + '/' + contactId).valueChanges()
-                  .subscribe(contact => { this.contact = contact; });
-    return this.contact;
+  getContact(userId: string, contactId: string): Observable<Contact> {
+    return this.db.object<Contact>('/users/contacts/' + userId + '/' + contactId).valueChanges();
   }
 
   updateContact(userId: string, contact: Contact) {

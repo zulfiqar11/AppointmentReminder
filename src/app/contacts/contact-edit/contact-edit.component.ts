@@ -32,7 +32,8 @@ export class ContactEditComponent implements OnInit {
 
   ngOnInit() {
     this.timeZones = this.timeZoneService.getTimeZones();
-    this.contact = this.contactService.getContact(this.userId , this.contactId);
+    this.contactService.getContact(this.userId , this.contactId)
+                                .subscribe(c => { this.contact = c; });
   }
 
   SaveContact() {
