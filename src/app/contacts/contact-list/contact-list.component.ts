@@ -14,7 +14,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ContactListComponent implements OnInit {
 
-  contacts: Contact[];
+  contacts$: Observable<Contact[]>;
   user: User;
 
   constructor(private userService: UserService, private router: Router,
@@ -23,7 +23,7 @@ export class ContactListComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.userService.getSavedUser().getValue();
-    this.contacts = this.contactsService.getContacts(this.user.uid);
+    this.contacts$ = this.contactsService.getContacts(this.user.uid);
   }
 
   DeleteContact(contactId: string) {
