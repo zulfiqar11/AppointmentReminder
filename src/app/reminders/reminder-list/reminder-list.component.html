@@ -4,38 +4,31 @@
       <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Date</th>
-              <th scope="col">Day</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
+              <th scope="col">Phone</th>
               <th scope="col">Time</th>
-              <th scope="col">Frequency</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let reminder of reminders">
+            <tr *ngFor="let reminder of reminders$ | async">
               <td>
-                <a [routerLink]="['/reminders', reminder.id]">
-                  {{reminder.FirstName}}
+                <a [routerLink]="['/reminders', user.uid, reminder.cid]" class="btn btn-primary">
+                  {{reminder.contfirstname}}
                 </a>
               </td>
-            
-              <td>{{reminder.LastName}}</td>
-              <td>{{reminder.Date}}</td>
-              <td>{{reminder.Day}}</td>
-              <td>{{reminder.Time}}</td>
-              <td>{{reminder.Frequency}}</td>
+              <td>{{reminder.contlastname}}</td>
+              <td>{{reminder.contmobile}}</td>
+              <td>{{reminder.time}}</td>
               <td>
-                <a [routerLink] ="['/reminders', reminder.id, 'edit']" class="btn btn-primary"> Edit </a>
-                <a [routerLink] ="['/reminders', reminder.id, 'delete']" class="btn btn-primary"> Delete </a>
+                  <a [routerLink]="['/reminders', user.uid, reminder.cid, 'edit']" class="btn btn-primary">Edit</a>
+              </td>
+              <td>
+                <button (click) = "DeleteReminder(reminder.time)" class="btn btn-primary">Delete</button>
               </td>
             </tr>
           </tbody>
         </table>
-        <button
-          [routerLink]="['reminders',0,'edit']"
-         class="btn btn-primary">Add reminder</button>
-
-       
   </div>
+  <button [routerLink]="['/contacts', user.uid , 'add']" class="btn btn-primary">Add Reminder</button>
 </div>

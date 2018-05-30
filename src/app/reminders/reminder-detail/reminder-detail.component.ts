@@ -17,7 +17,7 @@ export class ReminderDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.reminder = this.reminderService.getReminder(this.id);
+//    this.reminder = this.reminderService.getReminder(this.id);
   }
 
 }

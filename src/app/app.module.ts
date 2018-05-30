@@ -34,6 +34,7 @@ import { ErrorAlertComponent } from './authentication/error-alert/error-alert.co
 import { UserProfileDetailComponent } from './authentication/user-profile/user-profile-detail/user-profile-detail.component';
 import { UserProfileEditComponent } from './authentication/user-profile/user-profile-edit/user-profile-edit.component';
 import { ContactAddComponent } from './contacts/contact-add/contact-add.component';
+import { ReminderAddComponent } from './reminders/reminder-add/reminder-add.component';
 
 const appRoutes: Routes = [
   { path: 'reminders/:id/edit', component: ReminderEditComponent },
@@ -73,7 +74,8 @@ const appRoutes: Routes = [
     UserProfileDetailComponent,
     UserProfileEditComponent,
     ErrorAlertComponent,
-    ContactAddComponent
+    ContactAddComponent,
+    ReminderAddComponent
   ],
   imports: [
     BrowserModule,

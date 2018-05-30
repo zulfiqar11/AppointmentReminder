@@ -31,6 +31,4 @@ export class ContactAddComponent implements OnInit {
     this.contactService.addContact(this.userId, this.contact);
     this.router.navigateByUrl('/contacts');
   }
-
-
 }

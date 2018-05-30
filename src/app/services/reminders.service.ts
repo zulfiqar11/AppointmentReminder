@@ -1,21 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Reminder } from '../Models/Reminder';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class RemindersService {
 
-  reminders: Array<Reminder> = [
-    {id: 1, FirstName: 'Sobia', LastName: 'Syed', Date:  '4/26/2018', Time:  '5:49 PM', Day:  'Thursday', Frequency: 'Weekly'},
-    {id: 2, FirstName: 'Zulfiqar', LastName: 'Syed', Date:  '4/26/2018', Time:  '5:49 PM', Day:  'Thursday', Frequency: 'Daily'},
-    {id: 3, FirstName: 'Lenah', LastName: 'Syed', Date:  '4/21/2018', Time:  '5:49 PM', Day:  'Thursday', Frequency: 'Daily'}
-  ];
-  constructor() { }
+  constructor(private db: AngularFireDatabase) {}
 
-  getReminders(): Array<Reminder> {
-    return this.reminders;
-  }
-
-  getReminder(id: number): Reminder {
-    return this.reminders.find(r => r.id === id);
+  getReminders(userid: string): Observable<Reminder[]> {
+    return this.db.list<Reminder>('/users/reminders/' + userid).valueChanges();
   }
 }
