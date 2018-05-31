@@ -24,11 +24,10 @@
                   <a [routerLink]="['/reminders', user.uid, reminder.cid, 'edit']" class="btn btn-primary">Edit</a>
               </td>
               <td>
-                <button (click) = "DeleteReminder(reminder.time)" class="btn btn-primary">Delete</button>
+                <button (click) = "DeleteReminder(reminder.rid)" class="btn btn-primary">Delete</button>
               </td>
             </tr>
           </tbody>
         </table>
   </div>
-  <button [routerLink]="['/contacts', user.uid , 'add']" class="btn btn-primary">Add Reminder</button>
 </div>

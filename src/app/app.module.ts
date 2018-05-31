@@ -40,6 +40,7 @@ const appRoutes: Routes = [
   { path: 'reminders/:id/edit', component: ReminderEditComponent },
   { path: 'reminders/:id', component: ReminderDetailComponent },
   { path: 'reminders', component: ReminderListComponent, canActivate: [AuthGuardService]},
+  { path: 'reminders/:userid/:contactid/add', component: ReminderAddComponent },
   { path: 'contacts/:userid/:contactid/edit', component: ContactEditComponent },
   { path: 'contacts/:userid/add', component: ContactAddComponent },
   { path: 'contacts/:userid/:contactid', component: ContactDetailComponent },

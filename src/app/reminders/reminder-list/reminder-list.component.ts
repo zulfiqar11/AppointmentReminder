@@ -24,8 +24,8 @@ export class ReminderListComponent implements OnInit {
     this.reminders$ = this.remindersService.getReminders(this.user.uid);
   }
 
-  DeleteReminder(reminderid: string) {
-
+  DeleteReminder(reminderId: string) {
+    this.remindersService.removeReminder(this.user.uid, reminderId);
   }
 
 }
