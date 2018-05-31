@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Contact } from '../../Models/contact';
+import { Reminder } from '../../Models/reminder';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ContactsService } from '../../services/contacts.service';
+import { RemindersService } from '../../services/reminders.service';
 
 @Component({
   selector: 'app-reminder-edit',
@@ -7,10 +12,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReminderEditComponent implements OnInit {
 
-  pageTitle = 'Reminder Edit';
-  constructor() { }
+  reminder: Reminder;
+  userId: string;
+  reminderId: string;
+
+  constructor(private router: Router,
+    private route: ActivatedRoute,
+    private reminderService: RemindersService) {
+
+      this.userId = this.route.snapshot.params['userid'];
+      this.reminderId = this.route.snapshot.params['reminderid'];
+    }
 
   ngOnInit() {
+  this.reminderService.getReminder(this.userId, this.reminderId)
+              .subscribe(r => { this.reminder = r; });
   }
 
+  SaveReminder() {
+    this.reminderService.updateReminder(this.userId, this.reminder);
+    this.router.navigateByUrl('/reminders');
+  }
 }

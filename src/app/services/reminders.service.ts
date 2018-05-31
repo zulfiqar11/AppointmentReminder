@@ -23,4 +23,12 @@ export class RemindersService {
   removeReminder(userId: string, reminderId: string) {
     this.db.object<Reminder>('/users/reminders/' + userId + '/' + reminderId).remove();
   }
+
+  getReminder(userId: string, reminderId: string): Observable<Reminder> {
+    return this.db.object<Reminder>('/users/reminders/' + userId + '/' + reminderId).valueChanges();
+  }
+
+  updateReminder(userId: string, reminder: Reminder) {
+    this.db.object<Reminder>('/users/reminders/' + userId + '/' + reminder.rid).update({time: reminder.time});
+  }
 }

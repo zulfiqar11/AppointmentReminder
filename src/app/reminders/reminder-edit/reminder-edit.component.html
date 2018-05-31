@@ -1,43 +1,30 @@
-
 <div class="container">
-    <h3>{{pageTitle}}</h3>
-    <div class="form-group row">
-      <label for="example-text-input" class="col-2 col-form-label">First Name</label>
-      <div class="col-10">
-        <input class="form-control" type="text"  value="Artisanal kale" id="example-text-input">
-      </div>
+  <h3>Reminder Edit</h3>
+  <div class="form-group row">
+    <label for="firstName" class="col-2 col-form-label">First Name</label>
+    <div class="col-10">
+      <input readonly class="form-control" type="text" [(ngModel)] ="reminder.contfirstname" id="firstName">
     </div>
-    <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Last Name</label>
-        <div class="col-10">
-          <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">
-        </div>
-    <!-- </div>
-        <div class="form-group row">
-      <label for="example-date-input" class="col-2 col-form-label">Date</label>
-      <div class="col-10">
-        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-      </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-date-input" class="col-2 col-form-label">Day</label>
-        <div class="col-10">
-          <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-time-input" class="col-2 col-form-label">Time</label>
-        <div class="col-10">
-          <input class="form-control" type="time" value="13:45:00" id="example-time-input">
-        </div>
-      </div>    
-    <div class="form-group row">
-      <label for="example-time-input" class="col-2 col-form-label">Frequency</label>
-      <div class="col-10">
-        <input class="form-control" type="time" value="13:45:00" id="example-time-input">
-      </div>
-    </div> -->
-    <button class="btn btn-primary">Submit</button>
-    
-    <button [routerLink]="['/reminders']" class="btn btn-warning">Cancel</button>
   </div>
+  <div class="form-group row">
+    <label for="lastName" class="col-2 col-form-label">Last Name</label>
+    <div class="col-10">
+      <input readonly class="form-control" type="text" [(ngModel)] ="reminder.contlastname" id="lastName">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="phone" class="col-2 col-form-label">Phone</label>
+    <div class="col-10">
+      <input readonly class="form-control" type="Phone" [(ngModel)] ="reminder.contmobile" id="phone">
+    </div>
+  </div>
+  <div class="form-group row">
+      <label for="time" class="col-2 col-form-label">Time</label>
+      <div class="col-10">
+        <input class="form-control" type="time" [(ngModel)] ="reminder.time" id="time">
+      </div>
+  </div>
+ 
+  <button (click) = "SaveReminder()" class="btn btn-primary">Update</button>
+  <button [routerLink]="['/reminders']" class="btn btn-warning">Cancel</button>
+</div>

@@ -16,7 +16,6 @@ export class ReminderAddComponent implements OnInit {
   contactId: string;
   reminder: Reminder;
   contact: Contact;
-  contact1: Contact;
 
   constructor(private router: Router,
                 private route: ActivatedRoute,
@@ -37,7 +36,9 @@ export class ReminderAddComponent implements OnInit {
     this.reminder.contfirstname = this.contact.firstname;
     this.reminder.contlastname = this.contact.lastname;
     this.reminder.contmobile = this.contact.phone;
+
     this.reminderService.addReminder(this.userId, this.reminder);
+
     this.router.navigateByUrl('/reminders');
   }
 

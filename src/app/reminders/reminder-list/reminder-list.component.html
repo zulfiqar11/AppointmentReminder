@@ -12,16 +12,12 @@
           </thead>
           <tbody>
             <tr *ngFor="let reminder of reminders$ | async">
-              <td>
-                <a [routerLink]="['/reminders', user.uid, reminder.cid]" class="btn btn-primary">
-                  {{reminder.contfirstname}}
-                </a>
-              </td>
+              <td>{{reminder.contfirstname}}</td>
               <td>{{reminder.contlastname}}</td>
               <td>{{reminder.contmobile}}</td>
               <td>{{reminder.time}}</td>
               <td>
-                  <a [routerLink]="['/reminders', user.uid, reminder.cid, 'edit']" class="btn btn-primary">Edit</a>
+                  <a [routerLink]="['/reminders', user.uid, reminder.rid, 'edit']" class="btn btn-primary">Edit</a>
               </td>
               <td>
                 <button (click) = "DeleteReminder(reminder.rid)" class="btn btn-primary">Delete</button>
