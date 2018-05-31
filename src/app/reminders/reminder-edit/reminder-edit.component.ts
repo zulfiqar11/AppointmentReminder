@@ -33,4 +33,8 @@ export class ReminderEditComponent implements OnInit {
     this.reminderService.updateReminder(this.userId, this.reminder);
     this.router.navigateByUrl('/reminders');
   }
+
+  RemoveReminder() {
+    this.reminderService.removeReminder(this.userId, this.reminderId);
+  }
 }
