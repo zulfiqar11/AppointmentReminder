@@ -35,6 +35,7 @@ import { UserProfileDetailComponent } from './authentication/user-profile/user-p
 import { UserProfileEditComponent } from './authentication/user-profile/user-profile-edit/user-profile-edit.component';
 import { ContactAddComponent } from './contacts/contact-add/contact-add.component';
 import { ReminderAddComponent } from './reminders/reminder-add/reminder-add.component';
+import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
 
 const appRoutes: Routes = [
   { path: 'reminders', component: ReminderListComponent, canActivate: [AuthGuardService]},
@@ -46,6 +47,7 @@ const appRoutes: Routes = [
   { path: 'contacts', component: ContactListComponent , canActivate: [AuthGuardService]},
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'resetpassword', component: ResetPasswordComponent },
   { path: 'userprofiledetail', component: UserProfileDetailComponent , canActivate: [AuthGuardService]},
   { path: 'userprofileedit', component: UserProfileEditComponent , canActivate: [AuthGuardService]},
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService]},
@@ -63,6 +65,7 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     HomeComponent,
     LoginComponent,
+    ResetPasswordComponent,
     ReminderDetailComponent,
     ContactDetailComponent,
     NavComponent,
