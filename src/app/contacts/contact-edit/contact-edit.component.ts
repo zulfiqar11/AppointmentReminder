@@ -20,6 +20,7 @@ export class ContactEditComponent implements OnInit {
   contactId: string;
   userId: string;
   contact: Contact;
+  contactImage: any = '../../../assets/images/person_edit.png';
 
   constructor(private contactService: ContactsService,
                 private router: Router,
@@ -39,6 +40,12 @@ export class ContactEditComponent implements OnInit {
   SaveContact() {
     this.contactService.updateContact(this.userId, this.contact);
     this.router.navigateByUrl('/contacts');
+  }
+
+  onContactEdit(event) {
+    const selectedFiles: FileList = event.target.files;
+    const file = selectedFiles.item(0);
+    this.contactService.addContactImage(this.userId, this.contactId, file);
   }
 
 }

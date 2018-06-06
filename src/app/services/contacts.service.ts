@@ -5,12 +5,26 @@ import { Contact } from '../Models/contact';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../Models/user';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 @Injectable()
 export class ContactsService {
 
-  constructor(private db: AngularFireDatabase) {}
+  constructor(private db: AngularFireDatabase, private fs: AngularFireStorage) {
+    this.fbStorage = fs.storage;
+  }
   contactId: string;
+  private fbStorage: any;
+
+  public addContactImage(userId: string, contactId: string, file: File) {
+    this.fbStorage.ref('/contact/' + file.name)
+        .put(file).then(
+          snapshot => {
+            const imageUrl: string = snapshot.downloadURL;
+            this.db.object('/users/contacts/' + userId + '/' + contactId)
+                .update({image: imageUrl});
+          });
+  }
 
   getContacts(userid: string): Observable<Contact[]> {
     return this.db.list<Contact>('/users/contacts/' + userid).valueChanges();

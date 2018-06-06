@@ -24,7 +24,7 @@ export class ContactAddComponent implements OnInit {
 
   ngOnInit() {
     this.timeZones = this.timeZoneService.getTimeZones();
-    this.contact = new Contact('', '', '', '', '', '');
+    this.contact = new Contact('', '', '', '', '', '', '');
   }
 
   SaveContact() {
