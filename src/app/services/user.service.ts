@@ -3,13 +3,32 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { User } from '../Models/user';
 import { Observable } from 'rxjs/Observable';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import { FirebaseApp, AngularFireModule } from 'angularfire2';
+import { AngularFireStorage } from 'angularfire2/storage';
+
 
 @Injectable()
 export class UserService {
 
   private subject: BehaviorSubject<User> = new BehaviorSubject(null);
+  private fbStorage: any;
+  private basePath = '/profile';
 
-  constructor(private db: AngularFireDatabase) { }
+  constructor(private fs: AngularFireStorage, private db: AngularFireDatabase) {
+    this.fbStorage = fs.storage;
+  }
+
+  public addProfileImage(user: User, file: File) {
+    this.fbStorage.ref('/profile/' + file.name)
+        .put(file).then(
+          snapshot => {
+            const imageUrl: string = snapshot.downloadURL;
+            this.db.object('/users/' + user.uid)
+                .update({image: imageUrl});
+            user.image = imageUrl;
+            this.saveUser(user);
+          });
+  }
 
   public addUser(user: User): void {
     this.db.object(`/users/` + user.uid).set(user);

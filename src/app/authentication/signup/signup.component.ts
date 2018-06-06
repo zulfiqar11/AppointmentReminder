@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
                 signupFormData.value.email,
                 signupFormData.value.name,
                 signupFormData.value.mobile,
-                userInfo.uid);
+                userInfo.uid, '');
 
         this.userService.addUser(user);
 

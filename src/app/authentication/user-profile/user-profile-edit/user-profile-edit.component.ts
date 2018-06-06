@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class UserProfileEditComponent implements OnInit {
 
   user: User;
+  profileImage: any = '../../../../assets/images/person_edit.png';
 
   constructor(private authService: AuthService,
               private userService: UserService,
@@ -27,4 +28,9 @@ export class UserProfileEditComponent implements OnInit {
     this.router.navigateByUrl('/userprofiledetail');
   }
 
+  onPersonEdit(event) {
+    const selectedFiles: FileList = event.target.files;
+    const file = selectedFiles.item(0);
+    this.userService.addProfileImage(this.user, file);
+  }
 }
