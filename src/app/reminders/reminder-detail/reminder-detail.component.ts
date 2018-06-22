@@ -13,7 +13,7 @@ export class ReminderDetailComponent implements OnInit {
   id: number;
   reminder: Reminder;
   constructor(private route: ActivatedRoute, private reminderService: RemindersService) {
-    this.id = +this.route.snapshot.params['id'];
+    // this.id = +this.route.snapshot.params['id'];
   }
 
   ngOnInit() {
