@@ -37,6 +37,7 @@ import { UserProfileEditComponent } from './authentication/user-profile/user-pro
 import { ContactAddComponent } from './contacts/contact-add/contact-add.component';
 import { ReminderAddComponent } from './reminders/reminder-add/reminder-add.component';
 import { ResetPasswordComponent } from './authentication/reset-password/reset-password.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const appRoutes: Routes = [
   { path: 'reminders', component: ReminderListComponent, canActivate: [AuthGuardService]},
@@ -89,7 +90,8 @@ const appRoutes: Routes = [
     AngularFireDatabaseModule,
     AuthenticationModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    NgbModule.forRoot()
   ],
   providers: [
                 RemindersService,
