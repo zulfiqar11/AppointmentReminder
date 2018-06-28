@@ -1,6 +1,6 @@
 import { ContactsService } from './../../services/contacts.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TimezonesService } from '../../services/timezones.service';
 import { Contact } from '../../Models/contact';

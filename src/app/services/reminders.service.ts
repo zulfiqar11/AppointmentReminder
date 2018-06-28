@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Reminder } from '../Models/Reminder';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class RemindersService {

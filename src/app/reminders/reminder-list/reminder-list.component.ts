@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Reminder } from '../../Models/reminder';
 import { RemindersService } from '../../services/reminders.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { User } from '../../Models/user';

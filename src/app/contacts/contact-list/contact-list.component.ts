@@ -5,7 +5,7 @@ import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { ContactsService } from '../../services/contacts.service';
 import { Contact } from '../../Models/contact';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-contact-list',

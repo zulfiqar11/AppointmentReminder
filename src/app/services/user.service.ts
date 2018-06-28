@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { User } from '../Models/user';
-import { Observable } from 'rxjs/Observable';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import { Observable , BehaviorSubject} from 'rxjs';
 import { FirebaseApp, AngularFireModule } from 'angularfire2';
 import { AngularFireStorage } from 'angularfire2/storage';
 

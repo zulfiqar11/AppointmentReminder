@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ContactsService } from '../../services/contacts.service';
 import { Contact } from '../../Models/contact';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { User } from '../../Models/user';
 import { Route } from '@angular/compiler/src/core';
 

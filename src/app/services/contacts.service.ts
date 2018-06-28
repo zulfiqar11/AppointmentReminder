@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Contact } from '../Models/contact';
 
 import { AngularFireDatabase } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { User } from '../Models/user';
 import { AngularFireStorage } from 'angularfire2/storage';
 
