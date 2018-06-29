@@ -1,16 +1,16 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" routerLink="/home">My Reminder</a>
+    <a class="navbar-brand" routerLink="/home">My Reminder <i class="fa fa-home"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()" routerLink="/reminders" class="nav-link">Reminders</a>
+          <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()" routerLink="/reminders" class="nav-link">Reminders <i class="fa fa-bell"></i></a>
         </li>
         <li class="nav-item">
-          <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()" routerLink="/contacts" class="nav-link">Contacts</a>
+          <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()" routerLink="/contacts" class="nav-link">Contacts <i class="fa fa-address-book"></i></a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -18,11 +18,10 @@
           <div class="col">
             <div ngbDropdown class="d-inline-block">
               <button class="btn btn-outline-primary" id="dropdownBasic1" *ngIf="authService?.isAuthenticated()" ngbDropdownToggle>{{getUserName()}}</button>
-              <a routerLinkActive="active" *ngIf="!authService?.isAuthenticated()" routerLink="/login" class="nav-link">Login</a>
+              <a routerLinkActive="active" *ngIf="!authService?.isAuthenticated()" routerLink="/login" class="nav-link">Login <i class="fa fa-sign-in"></i></a>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                  <button type="button" (click)='logOut()' class="btn btn-info">{{user.name}}</button>
-                  <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()" routerLink="/userprofiledetail" class="nav-link">Profile</a>
-                  <button *ngIf="authService?.isAuthenticated()" type="button" (click)='logOut()' class="btn btn-info">Logout</button>
+                  <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()" routerLink="/userprofiledetail" class="nav-link">Profile <i class="fa fa-user-circle"></i></a>   
+                  <button *ngIf="authService?.isAuthenticated()" type="button" (click)='logOut()' class="btn btn-info">Logout <i class="fa fa-sign-out"></i></button>
               </div>
             </div>
           </div>
@@ -31,3 +30,6 @@
     </div>
   </nav>
 </div>
+
+
+
