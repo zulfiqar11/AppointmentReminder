@@ -14,25 +14,19 @@
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
-          <!-- <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()" routerLink="/userprofiledetail" class="nav-link">Profile</a>
-          <a routerLinkActive="active" *ngIf="!authService?.isAuthenticated()" routerLink="/login" class="nav-link">Login</a>
-          <button *ngIf="authService?.isAuthenticated()" type="button" (click)='logOut()' class="btn btn-info">Logout</button> -->
-        <!-- drop down starts -->
         <div class="row">
           <div class="col">
             <div ngbDropdown class="d-inline-block">
-              <!-- <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Profile</button> -->
-              <button class="btn btn-outline-primary" id="dropdownBasic1" *ngIf="authService?.isAuthenticated()" ngbDropdownToggle>Profile</button>
+              <button class="btn btn-outline-primary" id="dropdownBasic1" *ngIf="authService?.isAuthenticated()" ngbDropdownToggle>{{getUserName()}}</button>
               <a routerLinkActive="active" *ngIf="!authService?.isAuthenticated()" routerLink="/login" class="nav-link">Login</a>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                  <button type="button" (click)='logOut()' class="btn btn-info">{{user.name}}</button>
                   <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()" routerLink="/userprofiledetail" class="nav-link">Profile</a>
-        
                   <button *ngIf="authService?.isAuthenticated()" type="button" (click)='logOut()' class="btn btn-info">Logout</button>
               </div>
             </div>
           </div>
         </div>      
-        <!-- drop down ends -->
       </form>
     </div>
   </nav>

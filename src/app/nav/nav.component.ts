@@ -13,7 +13,6 @@ export class NavComponent implements OnInit {
 
   authService: AuthService;
   userService: UserService;
-  user: User;
 
   constructor(private router: Router, private authoService: AuthService, private userService1: UserService) {
     this.authService = authoService;
@@ -26,7 +25,10 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this.userService.getSavedUser().getValue();
+
   }
 
+  getUserName(){
+    return this.userService.getSavedUser().getValue().name;
+  }
 }
