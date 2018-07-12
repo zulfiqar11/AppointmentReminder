@@ -31,4 +31,8 @@ export class NavComponent implements OnInit {
   getUserName(){
     return this.userService.getSavedUser().getValue().name;
   }
+
+  getUserImage() {
+    return this.userService.getSavedUser().getValue().image;
+  }
 }

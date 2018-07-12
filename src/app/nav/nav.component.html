@@ -17,7 +17,7 @@
         <div class="row">
           <div class="col">
             <div ngbDropdown class="d-inline-block">
-              <button class="btn btn-outline-primary" id="dropdownBasic1" *ngIf="authService?.isAuthenticated()" ngbDropdownToggle>{{getUserName()}}</button>
+              <button class="btn btn-outline-primary" id="dropdownBasic1" *ngIf="authService?.isAuthenticated()" ngbDropdownToggle><img height="24" width="24" src={{getUserImage()}} title={{getUserName()}} /></button>
               <a routerLinkActive="active" *ngIf="!authService?.isAuthenticated()" routerLink="/login" class="nav-link">Login <i class="fa fa-sign-in"></i></a>
               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                   <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()" routerLink="/userprofiledetail" class="nav-link">Profile <i class="fa fa-user-circle"></i></a>   
