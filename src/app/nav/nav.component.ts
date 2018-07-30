@@ -13,6 +13,7 @@ export class NavComponent implements OnInit {
 
   authService: AuthService;
   userService: UserService;
+  profileImage: any = '/assets/images/person.jpg';
 
   constructor(private router: Router, private authoService: AuthService, private userService1: UserService) {
     this.authService = authoService;
