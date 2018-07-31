@@ -4,7 +4,8 @@
         <table class="table table-striped">
             <thead>
               <tr>
-                  <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col">Image</th>
                 <th scope="col">First Name</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">Phone</th>
@@ -18,7 +19,11 @@
                     <a [routerLink]="['/reminders', user.uid, contact.cid, 'add']" class="btn btn-primary">
                       Add Reminder
                     </a>
-                  </td>                
+                  </td>      
+                  <td>
+                    <img *ngIf="contact?.image.length === 2" height="40" width="40" src='/assets/images/person.jpg'> 
+                    <img *ngIf="contact?.image.length > 2" height="40" width="40" [src]="contact.image"> 
+                  </td>          
                 <td>
                   <a [routerLink]="['/contacts', user.uid, contact.cid]" class="btn btn-primary">
                     {{contact.firstname}}

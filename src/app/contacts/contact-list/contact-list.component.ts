@@ -16,6 +16,7 @@ export class ContactListComponent implements OnInit {
 
   contacts$: Observable<Contact[]>;
   user: User;
+  contactImage = '/assets/images/person.jpg';
 
   constructor(private userService: UserService, private router: Router,
               private contactsService: ContactsService) {
@@ -29,5 +30,9 @@ export class ContactListComponent implements OnInit {
   DeleteContact(contactId: string) {
     this.contactsService.removeContact(this.user.uid, contactId);
     this.router.navigateByUrl('/contacts');
+  }
+
+  GetContactImage() {
+    return this.contactImage;
   }
 }
