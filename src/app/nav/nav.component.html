@@ -1,39 +1,34 @@
 <div class="container">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" routerLink="/home">My Reminder <i class="fa fa-home"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+    
+    <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()" routerLink="/reminders" class="nav-link">Reminders <i class="fa fa-bell"></i></a>
         </li>
         <li class="nav-item">
           <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()" routerLink="/contacts" class="nav-link">Contacts <i class="fa fa-address-book"></i></a>
         </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <div class="row">
-          <div class="col">
-            <div ngbDropdown class="d-inline-block">
-              <button class="btn btn-outline-primary" id="dropdownBasic1" *ngIf="authService?.isAuthenticated()" ngbDropdownToggle><img height="24" width="24" src={{getUserImage()}} title={{getUserName()}} /></button>
-              <button class="btn btn-outline-primary" id="dropdownBasic1" *ngIf="!authService?.isAuthenticated()" ngbDropdownToggle><img height="24" width="24" src='/assets/images/person.jpg' /></button>
+    </ul>
 
-              <div ngbDropdownMenu  aria-labelledby="dropdownBasic1">
-                  <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()"  routerLink="/userprofiledetail" class="nav-link">Profile <i class="fa fa-user-circle"></i></a>   
-                  <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()"  (click)='logOut()' routerLink="/login" class="nav-link">Logout <i class="fa fa-sign-out"></i></a>
-              </div> 
+    <div class="row">
+      <div class="col">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownBasic1" *ngIf="authService?.isAuthenticated()" ngbDropdownToggle><img height="24" width="24" src={{getUserImage()}} title={{getUserName()}} /></button>
+          <button class="btn btn-outline-primary" id="dropdownBasic1" *ngIf="!authService?.isAuthenticated()" ngbDropdownToggle><img height="24" width="24" src='/assets/images/person.jpg' /></button>
 
-              <div ngbDropdownMenu  aria-labelledby="dropdownBasic1">
-                <a routerLinkActive="active" *ngIf="!authService?.isAuthenticated()"  routerLink="/login" class="nav-link">Login <i class="fa fa-user-circle"></i></a>   
-                <a routerLinkActive="active" *ngIf="!authService?.isAuthenticated()"  routerLink="/signup" class="nav-link">Sign Up <i class="fa fa-user-plus"></i></a>   
-                <a routerLinkActive="active"  *ngIf="!authService?.isAuthenticated()" routerLink="/resetpassword" class="nav-link">Forgot Password <i class="fa fa-key"></i></a>   
-            </div>
-            </div>
+          <div ngbDropdownMenu  aria-labelledby="dropdownBasic1">
+              <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()"  routerLink="/userprofiledetail" class="nav-link">Profile <i class="fa fa-user-circle"></i></a>   
+              <a routerLinkActive="active" *ngIf="authService?.isAuthenticated()"  (click)='logOut()' routerLink="/login" class="nav-link">Logout <i class="fa fa-sign-out"></i></a>
+          </div> 
+
+          <div ngbDropdownMenu  aria-labelledby="dropdownBasic1">
+            <a routerLinkActive="active" *ngIf="!authService?.isAuthenticated()"  routerLink="/login" class="nav-link">Login <i class="fa fa-user-circle"></i></a>   
+            <a routerLinkActive="active" *ngIf="!authService?.isAuthenticated()"  routerLink="/signup" class="nav-link">Sign Up <i class="fa fa-user-plus"></i></a>   
+            <a routerLinkActive="active"  *ngIf="!authService?.isAuthenticated()" routerLink="/resetpassword" class="nav-link">Forgot Password <i class="fa fa-key"></i></a>   
           </div>
-        </div>      
-      </form>
+        </div>
+      </div>
     </div>
   </nav>
 </div>
