@@ -12,6 +12,7 @@ import { User } from '../../../Models/user';
 export class UserProfileDetailComponent implements OnInit {
 
   profileImage: any = '../../../assets/images/person_edit.png';
+  defaultImage: any = '../../../assets/images/person.jpg';
 
   user: User;
 
@@ -34,4 +35,12 @@ export class UserProfileDetailComponent implements OnInit {
       this.router.navigateByUrl('/login');
   }
 
+  getUserImage(){
+      if (this.user.image.length == 0) {
+        return this.defaultImage;
+      }
+      else {
+        return this.user.image;
+      }
+  }
 }

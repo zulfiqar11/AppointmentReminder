@@ -29,6 +29,13 @@ export class UserService {
           });
   }
 
+  public removeProfileImage(user: User)
+  {
+    user.image='';
+    this.db.object<User>(`/users/` + user.uid).update({image: user.image});
+    this.saveUser(user);
+  }
+
   public addUser(user: User): void {
     this.db.object(`/users/` + user.uid).set(user);
     this.saveUser(user);

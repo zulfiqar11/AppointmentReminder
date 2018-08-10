@@ -32,4 +32,8 @@ export class UserProfileEditComponent implements OnInit {
     const selectedFiles: FileList = event.target.files;
     this.userService.addProfileImage(this.user, selectedFiles.item(0));
   }
+
+  onPersonRemoveImage(event){
+    this.userService.removeProfileImage(this.user);
+  }
 }

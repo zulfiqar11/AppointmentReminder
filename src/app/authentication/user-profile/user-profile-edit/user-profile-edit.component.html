@@ -6,7 +6,11 @@
               <input type="button" id="loadPicFile" value="choose picture file" onclick="document.getElementById('file').click();" />
               <input (change)="onPersonEdit($event)" type="file" style="display:none;" id="file" name="file"/>
       </div>
-
+      <br>
+      <div class="person-icon">      
+        <input type="button" id="removePicFile" value="remove picture file" (click)="onPersonRemoveImage($event);" />
+      </div>
+      <br>      
       <div class="form-group row">
         <label for="name" class="col-2 col-form-label">Name</label>
         <div class="col-10">
