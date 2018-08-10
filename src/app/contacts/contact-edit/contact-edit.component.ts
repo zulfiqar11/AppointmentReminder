@@ -47,4 +47,8 @@ export class ContactEditComponent implements OnInit {
     const file = selectedFiles.item(0);
     this.contactService.addContactImage(this.userId, this.contactId, file);
   }
+
+  onContactRemoveImage(event) {
+    this.contactService.removeContactImage(this.userId, this.contact);
+  }
 }

@@ -53,4 +53,9 @@ export class ContactsService {
   removeContact(userId: string, contactId: string) {
     this.db.object<Contact>('/users/contacts/' + userId + '/' + contactId).remove();
   }
+
+  public removeContactImage(userId: string, contact: Contact)
+  {
+    this.db.object<Contact>('/users/contacts/' + userId + '/' + contact.cid).update({image: ''});
+  }
 }

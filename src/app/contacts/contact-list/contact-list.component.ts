@@ -31,8 +31,4 @@ export class ContactListComponent implements OnInit {
     this.contactsService.removeContact(this.user.uid, contactId);
     this.router.navigateByUrl('/contacts');
   }
-
-  GetContactImage() {
-    return this.contactImage;
-  }
 }

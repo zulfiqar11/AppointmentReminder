@@ -21,8 +21,8 @@
                     </a>
                   </td>      
                   <td>
-                    <img *ngIf="contact?.image.length === 2" height="40" width="40" src='/assets/images/person.jpg'> 
-                    <img *ngIf="contact?.image.length > 2" height="40" width="40" [src]="contact.image"> 
+                    <img *ngIf="contact?.image.length < 1" height="40" width="40" src='/assets/images/person.jpg'> 
+                    <img *ngIf="contact?.image.length > 0" height="40" width="40" [src]="contact.image"> 
                   </td>          
                 <td>
                   <a [routerLink]="['/contacts', user.uid, contact.cid]" class="btn btn-primary">
