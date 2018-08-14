@@ -1,5 +1,15 @@
 <div class="container">
   <h3>Reminder Edit</h3>
+  <br>
+  <div class="person-icon">      
+    <input type="button" id="loadPicFile" value="choose picture file" onclick="document.getElementById('file').click();" />
+    <input (change)="onReminderEdit($event)" type="file" style="display:none;" id="file" name="file"/>
+  </div>
+  <br>
+  <div class="person-icon">      
+    <input type="button" id="removePicFile" value="remove picture" (click)="onReminderRemoveImage($event);" />
+  </div>    
+  <br>
   <div class="form-group row">
     <label for="firstName" class="col-2 col-form-label">First Name</label>
     <div class="col-10">

@@ -37,4 +37,14 @@ export class ReminderEditComponent implements OnInit {
   RemoveReminder() {
     this.reminderService.removeReminder(this.userId, this.reminderId);
   }
+
+  onReminderEdit(event) {
+    const selectedFiles: FileList = event.target.files;
+    const file = selectedFiles.item(0);
+    this.reminderService.addReminderImage(this.userId, this.reminderId, file);
+  }
+
+  onReminderRemoveImage(event) {
+    this.reminderService.removeReminderImage(this.userId, this.reminder);
+  }
 }

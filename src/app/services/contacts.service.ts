@@ -40,6 +40,7 @@ export class ContactsService {
     this.db.object<Contact>('/users/contacts/' + userId + '/' + contact.cid).update({email: contact.email});
     this.db.object<Contact>('/users/contacts/' + userId + '/' + contact.cid).update({phone: contact.phone});
     this.db.object<Contact>('/users/contacts/' + userId + '/' + contact.cid).update({timezone: contact.timezone});
+    this.db.object<Contact>('/users/contacts/' + userId + '/' + contact.cid).update({image: contact.image});
   }
 
   addContact(userId: string, contact: Contact) {

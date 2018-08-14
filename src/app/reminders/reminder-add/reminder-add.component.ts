@@ -24,7 +24,7 @@ export class ReminderAddComponent implements OnInit {
 
                   this.userId = this.route.snapshot.params['userid'];
                   this.contactId = this.route.snapshot.params['contactid'];
-                  this.reminder = new Reminder(this.contactId, '', '', '', '', '');
+                  this.reminder = new Reminder(this.contactId, '', '', '', '', '', '');
                 }
 
   ngOnInit() {
@@ -41,5 +41,11 @@ export class ReminderAddComponent implements OnInit {
 
     this.router.navigateByUrl('/reminders');
   }
+
+  onReminderEdit(event) {
+    const selectedFiles: FileList = event.target.files;
+    const file = selectedFiles.item(0);
+    this.reminderService.addReminderImage(this.userId, this.reminderId, file);
+  }  
 
 }
