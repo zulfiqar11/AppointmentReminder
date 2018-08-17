@@ -45,7 +45,7 @@ export class ReminderAddComponent implements OnInit {
   onReminderEdit(event) {
     const selectedFiles: FileList = event.target.files;
     const file = selectedFiles.item(0);
-    this.reminderService.addReminderImage(this.userId, this.reminderId, file);
+    this.reminderService.addReminderImage(this.userId, this.reminder.rid, file);
   }  
 
 }
